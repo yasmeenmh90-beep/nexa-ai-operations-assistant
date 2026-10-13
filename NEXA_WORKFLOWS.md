@@ -1,3 +1,5 @@
+<!-- This document belongs to the dedicated NEXA public engineering case-study repository. The image archive is linked from the original FlyRank submission; the private portfolio source is maintained in a different private repository. -->
+
 <div align="center">
 
 <sub><strong>NEXA / WORKFLOW ARCHITECTURE EVIDENCE</strong></sub>
@@ -6,11 +8,11 @@
 
 ### Specialist intelligence · routing · operational controls · engineering evidence
 
-[![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC_DEMO-LIVE-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) ![EVIDENCE](https://img.shields.io/badge/EVIDENCE-SCREENSHOTS_IN_FLYRANK_REPO-64748b?style=flat-square) ![PRIVATE INTEGRATIONS](https://img.shields.io/badge/PRIVATE_INTEGRATION-NOT_PUBLIC-f59e0b?style=flat-square)
+[![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC_DEMO-LIVE-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) ![EVIDENCE](https://img.shields.io/badge/EVIDENCE-17_SCREENSHOTS_LINKED_OF_18-64748b?style=flat-square) ![PRIVATE INTEGRATIONS](https://img.shields.io/badge/PRIVATE_INTEGRATION-NOT_PUBLIC-f59e0b?style=flat-square)
 
 **Yasmeen Azmat Ali** · October 2026
 
-[**Portfolio**](https://yasmeenazmat.com/) · [**Public NEXA Showcase**](https://nexa-public.netlify.app/) · [**NEXA Testing**](NEXA_TESTING_REPORT.md) · [**Final Evidence Index**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
+[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
 </div>
 
@@ -69,7 +71,7 @@ flowchart LR
 
 ## 04 · Individual workflow walkthroughs
 
-> **Screenshot status:** 17 of the 18 catalogue entries have confirmed PNG links under [`assets/n8n/`](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/), including the newly verified Probe Caller and Starter Sub-workflow. The Sub-workflow Error Probe still needs its exact repository image filename confirmed. These are editor screenshots, **not execution-level validation**. Review all images for personal or secret information.
+> **Screenshot status:** 17 of the 18 catalogue entries have confirmed PNG links under [`assets/n8n/`](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n), including the newly verified Probe Caller and Starter Sub-workflow. The Sub-workflow Error Probe still needs its exact repository image filename confirmed. These are editor screenshots, **not execution-level validation**. Review all images for personal or secret information.
 
 <a id="workflow-01"></a>
 
