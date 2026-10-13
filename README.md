@@ -21,6 +21,10 @@
 
 The [public showcase](https://nexa-public.netlify.app/) uses **fictional, predefined responses**; it is not connected to a private mailbox, authenticated NEXA agent, or live personal-data integrations. Separately, n8n workflow editor screenshots show the internal routing and service-integration designs. A published workflow indicator is not proof of end-to-end runtime success.
 
+## Documentation status
+
+**Public engineering case study — available.** The browser-based demo uses fictional local responses, while private authenticated workflows are a separate development layer. The dedicated Markdown files below are now maintained in this repository. The original PNG assets are retained in the [FlyRank evidence screenshot archive](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n) and referenced from the workflow atlas, rather than duplicating sensitive architecture images or merging them into the private portfolio source.
+
 ## Explore the case study
 
 | Document | What you'll find |
