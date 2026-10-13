@@ -1,3 +1,5 @@
+<!-- This document belongs to the dedicated NEXA public engineering case-study repository. The image archive is linked from the original FlyRank submission; the private portfolio source is maintained in a different private repository. -->
+
 <div align="center">
 
 <sub><strong>NEXA  /  PUBLIC SHOWCASE QUALITY ASSURANCE</strong></sub>
@@ -12,7 +14,7 @@ Documented browser observations and user-supplied screenshots, with explicit dis
 
 **Yasmeen Azmat Ali** · 2026
 
-[**Overview**](README.md) &nbsp;·&nbsp; [**Final Evidence Index**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md) &nbsp;·&nbsp; [**Retrospective**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/RETROSPECTIVE.md) &nbsp;·&nbsp; [**NEXA Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**NEXA Testing**](NEXA_TESTING_REPORT.md)
+[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
 </div>
 
@@ -23,7 +25,7 @@ Documented browser observations and user-supplied screenshots, with explicit dis
 ---
 
 
-> **Evidence standard.** This report records screenshots supplied by the project owner and the owner's report that all remaining navigation and accessibility checks passed on **October 13, 2026**. The Lighthouse scores are directly visible in a supplied Chrome screenshot. These observations **do not represent an independent penetration test or comprehensive accessibility certification**. Screenshots are retained in the submission conversation and are not embedded in this public Markdown repository.
+> **Evidence standard.** This report records screenshots supplied by the project owner and the owner's report that all remaining navigation and accessibility checks passed on **October 13, 2026**. The Lighthouse scores are directly visible in a supplied Chrome screenshot. These observations **do not represent an independent penetration test or comprehensive accessibility certification**. Public n8n workflow screenshots are linked from the workflow atlas; screenshots documenting demo interactions and Lighthouse are available in the participant's submitted evidence and are not embedded in this Markdown document.
 
 ## 01 · Test scope
 
@@ -123,7 +125,7 @@ This testing report evaluates the **NEXA public sample interface**, not the sepa
 | NEXA n8n workflow atlas | **18** documented workflow designs, with images listed in [the workflow atlas](NEXA_WORKFLOWS.md) | Screenshots demonstrate routing designs and publication indicators, not end-to-end execution |
 | FlyRank portfolio | Earlier PageSpeed desktop **98**, mobile **71–72** | Separate project and earlier build; do not combine with NEXA Lighthouse |
 
-**No unsupported performance claims:** No measured agent task success rate, latency distribution, live-model accuracy, or controlled v2-versus-v1 comparison has been supplied. Therefore none is inferred from these screenshots. For the strict FL-09 reproducibility requirement, consult the [portfolio README's FL-09 assessment](README.md#-fl-09--documentation-and-demo-verification): the full source remains private.
+**No unsupported performance claims:** No measured agent task success rate, latency distribution, live-model accuracy, or controlled v2-versus-v1 comparison has been supplied. Therefore none is inferred from these screenshots. For the strict FL-09 reproducibility requirement, consult the [portfolio README's FL-09 assessment](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/README.md): the full source remains private.
 
 ---
 
@@ -131,7 +133,7 @@ This testing report evaluates the **NEXA public sample interface**, not the sepa
 
 **Built with care · Evaluated with evidence · Presented with transparency**
 
-[**Overview**](README.md) &nbsp;·&nbsp; [**Final Evidence Index**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md) &nbsp;·&nbsp; [**Retrospective**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/RETROSPECTIVE.md) &nbsp;·&nbsp; [**NEXA Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**NEXA Testing**](NEXA_TESTING_REPORT.md)
+[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
 <sub>FlyRank General AI Fluency · Yasmeen Azmat Ali · 2026</sub>
 
