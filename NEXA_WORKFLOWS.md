@@ -86,7 +86,7 @@ flowchart LR
 
 **Workflow screenshot 01** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GmailSpecialist.png)
 
-![GmailSpecialist n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GmailSpecialist.png)
+![GmailSpecialist n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GmailSpecialist.png)
 
 <a id="workflow-02"></a>
 
@@ -101,7 +101,7 @@ flowchart LR
 
 **Workflow screenshot 02** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/OperationalIntelligence.png)
 
-![OperationalIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/OperationalIntelligence.png)
+![OperationalIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/OperationalIntelligence.png)
 
 <a id="workflow-03"></a>
 
@@ -116,7 +116,7 @@ flowchart LR
 
 **Workflow screenshot 03** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GithubIntelligence.png)
 
-![GithubIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GithubIntelligence.png)
+![GithubIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GithubIntelligence.png)
 
 <a id="workflow-04"></a>
 
@@ -131,7 +131,7 @@ flowchart LR
 
 **Workflow screenshot 04** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/PortfolioIntelligence.png)
 
-![PortfolioIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/PortfolioIntelligence.png)
+![PortfolioIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/PortfolioIntelligence.png)
 
 <a id="workflow-05"></a>
 
@@ -146,7 +146,7 @@ flowchart LR
 
 **Workflow screenshot 05** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/CareerIntelligence.png)
 
-![CareerIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/CareerIntelligence.png)
+![CareerIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/CareerIntelligence.png)
 
 <a id="workflow-06"></a>
 
@@ -161,7 +161,7 @@ flowchart LR
 
 **Workflow screenshot 06** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/CalendarIntelligence.png)
 
-![CalendarIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/CalendarIntelligence.png)
+![CalendarIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/CalendarIntelligence.png)
 
 <a id="workflow-07"></a>
 
@@ -176,7 +176,7 @@ flowchart LR
 
 **Workflow screenshot 07** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/DailyIntelligence.png)
 
-![DailyIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/DailyIntelligence.png)
+![DailyIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/DailyIntelligence.png)
 
 <a id="workflow-08"></a>
 
@@ -191,7 +191,7 @@ flowchart LR
 
 **Workflow screenshot 08** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/MemoryIntelligence.png)
 
-![MemoryIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/MemoryIntelligence.png)
+![MemoryIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/MemoryIntelligence.png)
 
 <a id="workflow-09"></a>
 
@@ -206,7 +206,7 @@ flowchart LR
 
 **Workflow screenshot 09** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/NEXA-Agent.png)
 
-![NEXA-Agent n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/NEXA-Agent.png)
+![NEXA-Agent n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/NEXA-Agent.png)
 
 <a id="workflow-10"></a>
 
@@ -221,7 +221,7 @@ flowchart LR
 
 **Workflow screenshot 10** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ActionIntelligence.png)
 
-![ActionIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ActionIntelligence.png)
+![ActionIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ActionIntelligence.png)
 
 <a id="workflow-11"></a>
 
@@ -236,7 +236,7 @@ flowchart LR
 
 **Workflow screenshot 11** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ProactiveIntelligence.png)
 
-![ProactiveIntelligence n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ProactiveIntelligence.png)
+![ProactiveIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ProactiveIntelligence.png)
 
 <a id="workflow-12"></a>
 
@@ -251,7 +251,7 @@ flowchart LR
 
 **Workflow screenshot 12** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ControlCenter.png)
 
-![ControlCenter n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ControlCenter.png)
+![ControlCenter n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ControlCenter.png)
 
 <a id="workflow-13"></a>
 
@@ -266,7 +266,7 @@ flowchart LR
 
 **Workflow screenshot 13** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ErrorLogger.png)
 
-![ErrorLogger n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ErrorLogger.png)
+![ErrorLogger n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ErrorLogger.png)
 
 <a id="workflow-14"></a>
 
@@ -281,7 +281,7 @@ flowchart LR
 
 **Workflow screenshot 15** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflow-ErrorProbe.png)
 
-![Sub-workflow Error Probe n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflow-ErrorProbe.png)
+![Sub-workflow Error Probe n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/SubWorkflow-ErrorProbe.png)
 
 <a id="workflow-15"></a>
 
@@ -296,7 +296,7 @@ flowchart LR
 
 **Workflow screenshot 15** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ErrorCaptureProbe.png)
 
-![ErrorCaptureProbe n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/ErrorCaptureProbe.png)
+![ErrorCaptureProbe n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ErrorCaptureProbe.png)
 
 <a id="workflow-16"></a>
 
@@ -311,7 +311,7 @@ flowchart LR
 
 **Workflow screenshot 16** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflowProbeCaller.png)
 
-![Sub-workflow Probe Caller n8n workflow screenshot](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflowProbeCaller.png)
+![Sub-workflow Probe Caller n8n workflow screenshot](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/SubWorkflowProbeCaller.png)
 
 <a id="workflow-17"></a>
 
@@ -326,7 +326,7 @@ flowchart LR
 
 **Workflow screenshot 17** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GithubTrackerSync.png)
 
-![GithubTrackerSync n8n workflow architecture](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/GithubTrackerSync.png)
+![GithubTrackerSync n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GithubTrackerSync.png)
 
 <a id="workflow-18"></a>
 
@@ -341,7 +341,7 @@ flowchart LR
 
 **Workflow screenshot 18** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/StarterSubWorkflow.png)
 
-![Starter Sub-workflow n8n workflow screenshot](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/StarterSubWorkflow.png)
+![Starter Sub-workflow n8n workflow screenshot](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/StarterSubWorkflow.png)
 
 
 ## 05 · Public-versus-private boundaries
