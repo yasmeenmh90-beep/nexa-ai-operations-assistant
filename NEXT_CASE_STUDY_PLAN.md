@@ -1,3 +1,5 @@
+<!-- This document belongs to the dedicated NEXA public engineering case-study repository. The image archive is linked from the original FlyRank submission; the private portfolio source is maintained in a different private repository. -->
+
 <div align="center">
 
 <sub><strong>NEXA  /  SECOND CAPSTONE</strong></sub>
@@ -12,7 +14,7 @@ A staged technical roadmap linking the existing public prototype to a future aut
 
 **Yasmeen Azmat Ali** · 2026
 
-[**Overview**](README.md) &nbsp;·&nbsp; [**Final Evidence Index**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md) &nbsp;·&nbsp; [**Retrospective**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/RETROSPECTIVE.md) &nbsp;·&nbsp; [**NEXA Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**NEXA Testing**](NEXA_TESTING_REPORT.md)
+[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
 </div>
 
@@ -235,7 +237,7 @@ A displayed Lighthouse audit scored **100 Performance, 96 Accessibility, 100 Bes
 
 **Built with care · Evaluated with evidence · Presented with transparency**
 
-[**Overview**](README.md) &nbsp;·&nbsp; [**Final Evidence Index**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md) &nbsp;·&nbsp; [**Retrospective**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/RETROSPECTIVE.md) &nbsp;·&nbsp; [**NEXA Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**NEXA Testing**](NEXA_TESTING_REPORT.md)
+[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
 <sub>FlyRank General AI Fluency · Yasmeen Azmat Ali · 2026</sub>
 
