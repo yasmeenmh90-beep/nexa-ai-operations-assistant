@@ -1,14 +1,46 @@
-# NEXA — Testing and Evidence Report
+<a id="top"></a>
 
-[Overview](README.md) · [Workflow atlas](NEXA_WORKFLOWS.md) · [Testing report](NEXA_TESTING_REPORT.md) · [Roadmap](NEXT_CASE_STUDY_PLAN.md)
+<p align="center">
+  <img src="assets/docs/testing.svg" width="1280" alt="Testing & evidence — NEXA documentation"/>
+</p>
 
-**Updated: 15 October 2026**  
-**Public target:** [nexa-public.netlify.app](https://nexa-public.netlify.app/)  
-**Application source:** [nexa-public](https://github.com/yasmeenmh90-beep/nexa-public), revision [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7)
+<div align="center">
 
-This report distinguishes source/build checks, mocked backend tests, owner-confirmed behavior, visible recordings/screenshots and outstanding validation. It is not a complete security audit or accessibility certification.
+# Testing & evidence
 
-## Current release: 15 October 2026
+What passed, what was observed, and what remains to be checked.
+
+[![Backend tests: 10 passed](https://img.shields.io/badge/Backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
+
+[Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; **Testing report** &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
+
+<sub>RELEASE SNAPSHOT · 15 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+
+</div>
+
+---
+
+<a id="evidence-standard"></a>
+
+> [!IMPORTANT]
+> **Evidence standard:** source/build checks, mocked backend tests, owner reports and visible recordings are different kinds of evidence. This report is not a security audit or accessibility certification.
+
+| Engineering checks | User-supplied evidence | Review still open |
+| :--- | :--- | :--- |
+| TypeScript + production bundle | General chat, voice and visitor tools | Real-device and accessibility coverage |
+| **10 mocked backend tests** | Tour navigation and interview feedback | Full interview progression and tour focus behavior |
+| Static render + motion lifecycle | Sample-interface history | Current Lighthouse and operating controls |
+
+**On this page**  
+[Current release](#current-release) · [Data flow](#network-behavior) · [Historical baseline](#historical-baseline) · [Remaining checks](#remaining-checks) · [Related evidence](#related-evidence)
+
+---
+
+<a id="current-release"></a>
+
+> **Reviewed application source:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7). This documentation styling update does not rerun those engineering checks.
+
+## 01 · Current release: 15 October 2026
 
 ### Automated and static checks
 
@@ -30,6 +62,9 @@ npm run build
 node --test tests/chat.test.mjs
 ```
 
+<details>
+<summary><strong>Explore what the 10 backend tests cover</strong></summary>
+
 The test suite covers:
 
 1. Forwarding bounded follow-up context while dropping extra history-item fields.
@@ -42,6 +77,9 @@ The test suite covers:
 8. Fixed interview track/level instructions and educational coaching boundaries.
 9. Rejecting unsupported purposes and interview settings.
 10. Keeping general chat separate from interview instructions.
+
+
+</details>
 
 Tests do **not** call a live model, validate coaching quality, prove Netlify’s deployed throttling behavior, or certify production security.
 
@@ -63,7 +101,9 @@ Tests do **not** call a live model, validate coaching quality, prove Netlify’s
 
 The October 15 recordings/screenshots were supplied in the project conversation. They are not embedded or publicly hosted by this documentation update. Do not infer unobserved outcomes from a screenshot of a control.
 
-## Current network and data behavior
+<a id="network-behavior"></a>
+
+## 02 · Current network and data behavior
 
 - **Sample Demo** selects fictional local replies and does not call OpenAI.
 - **Live AI** sends a submitted message, bounded recent user/assistant history and selected experience settings to `/api/chat`. The server calls OpenAI.
@@ -75,7 +115,15 @@ The October 15 recordings/screenshots were supplied in the project conversation.
 
 The function source configures a 48,000-byte body limit, 1–1500-character current message, a 20-second upstream timeout, 400 output-token limit and a five-per-minute IP/domain rate limit. A configured origin check is not authentication; rate limiting is not an account-wide spending cap. Account budgets and deployed enforcement need separate review.
 
-## Historical baseline: 13 October 2026
+<a id="historical-baseline"></a>
+
+## 03 · Historical baseline: 13 October 2026
+
+> [!WARNING]
+> **Historical evidence:** these audit scores and sample observations describe the 13 October release. They are not measurements of the current voice/interview release.
+
+<details>
+<summary><strong>Open the archive · Lighthouse, sample cases and responsive observations</strong></summary>
 
 The following results belong to an **earlier fictional sample-only release**. They remain useful historical evidence, but are not current-release scores.
 
@@ -113,7 +161,11 @@ Historical Fetch/XHR captures showed zero matching entries during the demonstrat
 
 Earlier responsive captures included 320 px, 440 × 956 and 768 × 1024 views. The owner reported navigation and keyboard checks for that earlier version; those reports do not automatically transfer to the latest redesigned release.
 
-## Remaining validation
+</details>
+
+<a id="remaining-checks"></a>
+
+## 04 · Remaining validation
 
 - Complete one interview answer → feedback → next-question cycle in each intended track.
 - Verify hints refer to the current question and general chat stays separate.
@@ -127,8 +179,22 @@ Earlier responsive captures included 320 px, 440 × 956 and 768 × 1024 views. T
 
 Private owner authentication, private n8n integration, approval-controlled actions and persistent memory remain outside the validated public scope. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
 
-## Related evidence
+<a id="related-evidence"></a>
+
+## 05 · Related evidence
 
 - [Workflow atlas](NEXA_WORKFLOWS.md): 18 historical workflow definitions and screenshot paths; editor state is not execution success.
 - [Roadmap](NEXT_CASE_STUDY_PLAN.md): completed public work and future private integration.
 - [Original FlyRank submission index](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md): earlier submission context.
+
+---
+
+<div align="center">
+
+**A clear experience. A documented foundation.**
+
+[Try NEXA ↗](https://nexa-public.netlify.app/) &nbsp; · &nbsp; [Application source ↗](https://github.com/yasmeenmh90-beep/nexa-public) &nbsp; · &nbsp; [Back to top ↑](#top)
+
+<sub>NEXA · Public engineering documentation · October 2026</sub>
+
+</div>

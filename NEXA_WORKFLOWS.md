@@ -1,24 +1,30 @@
-<!-- This document belongs to the dedicated NEXA public engineering case-study repository. The image archive is linked from the original FlyRank submission; the private portfolio source is maintained in a different private repository. -->
+<a id="top"></a>
+
+<p align="center"><img src="assets/docs/workflows.svg" width="1280" alt="NEXA workflow atlas"/></p>
 
 <div align="center">
 
-<sub><strong>NEXA / WORKFLOW ARCHITECTURE EVIDENCE</strong></sub>
+# Workflow atlas
 
-# ✦ NEXA — n8n Workflow Atlas
+**Specialists, routing and operational controls**
 
-### Specialist intelligence · routing · operational controls · engineering evidence
+![Definitions](https://img.shields.io/badge/DEFINITIONS-18-a78bfa?style=flat-square) ![Screenshots](https://img.shields.io/badge/SCREENSHOT_PATHS-18_VERIFIED-8b5cf6?style=flat-square) ![Scope](https://img.shields.io/badge/INTEGRATION-PRIVATE-64748b?style=flat-square)
 
-[![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC_DEMO-LIVE-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) ![EVIDENCE](https://img.shields.io/badge/EVIDENCE-18_SCREENSHOTS_LINKED-64748b?style=flat-square) ![PRIVATE INTEGRATIONS](https://img.shields.io/badge/PRIVATE_INTEGRATION-NOT_PUBLIC-f59e0b?style=flat-square)
+[Overview](README.md) &nbsp; / &nbsp; **Workflow atlas** &nbsp; / &nbsp; [Testing & evidence](NEXA_TESTING_REPORT.md) &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-**Yasmeen Azmat Ali** · Updated 15 October 2026
-
-[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
+<sub>RELEASE SNAPSHOT · 15 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
 ---
 
-> **Scope:** This atlas documents the **separate private n8n workflow foundation** using user-provided editor screenshots. It is **not** the source code for the [public NEXA case-study site](https://nexa-public.netlify.app/). The current public site offers fictional browser-local samples, general OpenAI chat, browser voice and Interview Practice. Its guided tour runs locally. None of these experiences calls the private n8n workflows.
+> [!IMPORTANT]
+> This atlas documents the **separate private n8n foundation** using supplied editor screenshots. The public website's samples, OpenAI chat, browser voice, Interview Practice and guided tour do not call these workflows. Historical publication labels do not establish successful execution.
+
+**Explore the atlas**  
+[Architecture](#architecture) · [Status legend](#status-legend) · [Catalogue](#catalogue) · [Walkthroughs](#walkthroughs) · [Boundaries](#boundaries) · [Evidence](#evidence) · [Milestones](#milestones)
+
+<a id="architecture"></a>
 
 ## 01 · Architecture at a glance
 
@@ -44,6 +50,8 @@ flowchart TD
 
 **Screenshot date:** The workflow observations below refer to the earlier supplied editor screenshots. Public voice, general chat and interview releases do not change or revalidate their private publication state.
 
+<a id="status-legend"></a>
+
 ## 02 · Implementation-status legend
 
 | Label | Meaning |
@@ -52,6 +60,8 @@ flowchart TD
 | **Unpublished** | The editor shows **Publish**, so publication is not evidenced. |
 | **Archived** | An intentionally archived test workflow. |
 | **Test / placeholder** | Engineering experiment or starter template, not a production feature. |
+
+<a id="catalogue"></a>
 
 ## 03 · Workflow catalogue
 
@@ -76,11 +86,14 @@ flowchart TD
 | 17 | [GitHub Tracker Sync](#workflow-17) | Unpublished / Publish shown | Six-hour scheduling design lists repositories, reads the tracker, normalizes and deduplicates, fetches README, classifies a new repository and writes/verifies a tracker entry. |
 | 18 | [Starter Sub-workflow](#workflow-18) | Placeholder / Unpublished | Generic 'When Executed by Another Workflow' template with a replace-me node, included as development context. |
 
+<a id="walkthroughs"></a>
+
 ## 04 · Individual workflow walkthroughs
 
 > **Screenshot paths:** All **18 of 18** referenced PNG paths were confirmed in the existing [`assets/n8n/`](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n) archive on **15 October 2026**, including `SubWorkflow-ErrorProbe.png`. File existence is not execution evidence or a fresh image/privacy audit. No images were duplicated or newly uploaded by this update.
 
-<a id="workflow-01"></a>
+<details id="workflow-01" open>
+<summary><strong>01 · Gmail Specialist</strong> · Published</summary>
 
 ### 01 · Gmail Specialist
 
@@ -95,7 +108,10 @@ flowchart TD
 
 ![GmailSpecialist n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GmailSpecialist.png)
 
-<a id="workflow-02"></a>
+</details>
+
+<details id="workflow-02">
+<summary><strong>02 · Operational Intelligence</strong> · Published</summary>
 
 ### 02 · Operational Intelligence
 
@@ -110,7 +126,10 @@ flowchart TD
 
 ![OperationalIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/OperationalIntelligence.png)
 
-<a id="workflow-03"></a>
+</details>
+
+<details id="workflow-03">
+<summary><strong>03 · GitHub Intelligence</strong> · Published</summary>
 
 ### 03 · GitHub Intelligence
 
@@ -125,7 +144,10 @@ flowchart TD
 
 ![GithubIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GithubIntelligence.png)
 
-<a id="workflow-04"></a>
+</details>
+
+<details id="workflow-04">
+<summary><strong>04 · Portfolio Intelligence</strong> · Published</summary>
 
 ### 04 · Portfolio Intelligence
 
@@ -140,7 +162,10 @@ flowchart TD
 
 ![PortfolioIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/PortfolioIntelligence.png)
 
-<a id="workflow-05"></a>
+</details>
+
+<details id="workflow-05">
+<summary><strong>05 · Career Intelligence</strong> · Published</summary>
 
 ### 05 · Career Intelligence
 
@@ -155,7 +180,10 @@ flowchart TD
 
 ![CareerIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/CareerIntelligence.png)
 
-<a id="workflow-06"></a>
+</details>
+
+<details id="workflow-06">
+<summary><strong>06 · Calendar Intelligence</strong> · Published</summary>
 
 ### 06 · Calendar Intelligence
 
@@ -170,7 +198,10 @@ flowchart TD
 
 ![CalendarIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/CalendarIntelligence.png)
 
-<a id="workflow-07"></a>
+</details>
+
+<details id="workflow-07">
+<summary><strong>07 · Daily Intelligence</strong> · Unpublished / Publish shown</summary>
 
 ### 07 · Daily Intelligence
 
@@ -185,7 +216,10 @@ flowchart TD
 
 ![DailyIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/DailyIntelligence.png)
 
-<a id="workflow-08"></a>
+</details>
+
+<details id="workflow-08">
+<summary><strong>08 · Memory Intelligence</strong> · Unpublished / Publish shown</summary>
 
 ### 08 · Memory Intelligence
 
@@ -200,7 +234,10 @@ flowchart TD
 
 ![MemoryIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/MemoryIntelligence.png)
 
-<a id="workflow-09"></a>
+</details>
+
+<details id="workflow-09">
+<summary><strong>09 · NEXA Main Agent</strong> · Unpublished / Publish shown</summary>
 
 ### 09 · NEXA Main Agent
 
@@ -215,7 +252,10 @@ flowchart TD
 
 ![NEXA-Agent n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/NEXA-Agent.png)
 
-<a id="workflow-10"></a>
+</details>
+
+<details id="workflow-10">
+<summary><strong>10 · Action Intelligence</strong> · Unpublished / Publish shown</summary>
 
 ### 10 · Action Intelligence
 
@@ -230,7 +270,10 @@ flowchart TD
 
 ![ActionIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ActionIntelligence.png)
 
-<a id="workflow-11"></a>
+</details>
+
+<details id="workflow-11">
+<summary><strong>11 · Proactive Intelligence</strong> · Unpublished / Publish shown</summary>
 
 ### 11 · Proactive Intelligence
 
@@ -245,7 +288,10 @@ flowchart TD
 
 ![ProactiveIntelligence n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ProactiveIntelligence.png)
 
-<a id="workflow-12"></a>
+</details>
+
+<details id="workflow-12">
+<summary><strong>12 · Control Center</strong> · Unpublished / Publish shown</summary>
 
 ### 12 · Control Center
 
@@ -260,7 +306,10 @@ flowchart TD
 
 ![ControlCenter n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ControlCenter.png)
 
-<a id="workflow-13"></a>
+</details>
+
+<details id="workflow-13">
+<summary><strong>13 · Error Logger</strong> · Published</summary>
 
 ### 13 · Error Logger
 
@@ -275,7 +324,10 @@ flowchart TD
 
 ![ErrorLogger n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ErrorLogger.png)
 
-<a id="workflow-14"></a>
+</details>
+
+<details id="workflow-14">
+<summary><strong>14 · Sub-workflow Error Probe</strong> · Test / Unpublished</summary>
 
 ### 14 · Sub-workflow Error Probe
 
@@ -290,7 +342,10 @@ flowchart TD
 
 ![Sub-workflow Error Probe n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/SubWorkflow-ErrorProbe.png)
 
-<a id="workflow-15"></a>
+</details>
+
+<details id="workflow-15">
+<summary><strong>15 · Error Capture Probe</strong> · Archived test</summary>
 
 ### 15 · Error Capture Probe
 
@@ -305,7 +360,10 @@ flowchart TD
 
 ![ErrorCaptureProbe n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/ErrorCaptureProbe.png)
 
-<a id="workflow-16"></a>
+</details>
+
+<details id="workflow-16">
+<summary><strong>16 · Sub-workflow Probe Caller</strong> · Test / Unpublished</summary>
 
 ### 16 · Sub-workflow Probe Caller
 
@@ -320,7 +378,10 @@ flowchart TD
 
 ![Sub-workflow Probe Caller n8n workflow screenshot](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/SubWorkflowProbeCaller.png)
 
-<a id="workflow-17"></a>
+</details>
+
+<details id="workflow-17">
+<summary><strong>17 · GitHub Tracker Sync</strong> · Unpublished / Publish shown</summary>
 
 ### 17 · GitHub Tracker Sync
 
@@ -335,7 +396,10 @@ flowchart TD
 
 ![GithubTrackerSync n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/GithubTrackerSync.png)
 
-<a id="workflow-18"></a>
+</details>
+
+<details id="workflow-18">
+<summary><strong>18 · Starter Sub-workflow</strong> · Placeholder / Unpublished</summary>
 
 ### 18 · Starter Sub-workflow
 
@@ -350,6 +414,10 @@ flowchart TD
 
 ![Starter Sub-workflow n8n workflow screenshot](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/StarterSubWorkflow.png)
 
+</details>
+
+
+<a id="boundaries"></a>
 
 ## 05 · Public-versus-private boundaries
 
@@ -361,12 +429,16 @@ flowchart TD
 | No private n8n request path demonstrated | Authenticated backend connection is a future milestone |
 | Public for portfolio reviewers | Not intended to be publicly callable |
 
+<a id="evidence"></a>
+
 ## 06 · What this evidence supports
 
 - **Architecture visibility:** Screenshots show separately named specialists, routing branches, data-retrieval nodes, fallback paths and monitoring designs.
 - **Publication-state visibility:** Several specialist workflows display Published; other workflows display Publish or Archived.
 - **Not established from screenshots alone:** Successful executions, credential hygiene, production authorization, approval enforcement, endpoint security, error coverage or a live public-to-private integration.
 - **Testing next step:** For each specialist, collect one **sanitized** test execution showing safe input, branch taken, output, status, and date. Never expose tokens, full email bodies, personal events, private webhooks or sensitive logs.
+
+<a id="milestones"></a>
 
 ## 07 · Milestones and remaining work
 
@@ -387,3 +459,15 @@ flowchart TD
 ---
 
 <sub>Documentation concerns the provided screenshots and participant reports. It does not grant external access to private systems.</sub>
+
+---
+
+<div align="center">
+
+**A clear experience. A documented foundation.**
+
+[Try NEXA ↗](https://nexa-public.netlify.app/) &nbsp; · &nbsp; [Application source ↗](https://github.com/yasmeenmh90-beep/nexa-public) &nbsp; · &nbsp; [Back to top ↑](#top)
+
+<sub>NEXA · Public engineering documentation · October 2026</sub>
+
+</div>
