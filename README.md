@@ -3,63 +3,99 @@
 # ✦ NEXA
 ### Personal AI Operations Assistant · Public Engineering Case Study
 
-[![Demo](https://img.shields.io/badge/Public_Demo-Live-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/)
-![Architecture](https://img.shields.io/badge/Architecture-n8n_Workflows-334155?style=flat-square)
-![Status](https://img.shields.io/badge/Private_Integration-In_Development-f59e0b?style=flat-square)
+[![Public website](https://img.shields.io/badge/Public_Website-Live-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/)
+[![Runnable source](https://img.shields.io/badge/Source-React_%2B_TypeScript-334155?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public)
+![Private workflows](https://img.shields.io/badge/Private_n8n-Not_Connected-f59e0b?style=flat-square)
 
-**Agent routing · Workflow orchestration · Secure integration design · Applied AI**
+**General AI chat · Browser voice · Interview practice · Workflow architecture**
 
-[Live public showcase](https://nexa-public.netlify.app/) · [Main AI/ML portfolio](https://yasmeenazmat.com/) · [FlyRank submission evidence](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs)
+[Try NEXA](https://nexa-public.netlify.app/) · [Application source](https://github.com/yasmeenmh90-beep/nexa-public) · [Portfolio](https://yasmeenazmat.com/)
 
 </div>
 
 ---
 
-## Overview
+[Overview](README.md) · [Workflow atlas](NEXA_WORKFLOWS.md) · [Testing report](NEXA_TESTING_REPORT.md) · [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-**NEXA** is a personal AI operations assistant engineering project. This repository provides a **public case study** of its user experience, designed n8n specialist workflows, testing observations, and remaining engineering milestones.
+**Updated: 15 October 2026.** This repository is the documentation companion to the public NEXA application. Runnable code lives in [nexa-public](https://github.com/yasmeenmh90-beep/nexa-public); private n8n workflows remain separate.
 
-The [public showcase](https://nexa-public.netlify.app/) uses **fictional, predefined responses**; it is not connected to a private mailbox, authenticated NEXA agent, or live personal-data integrations. Separately, n8n workflow editor screenshots show the internal routing and service-integration designs. A published workflow indicator is not proof of end-to-end runtime success.
+## What NEXA does today
 
-## Documentation status
+NEXA is an interactive public AI experience and an engineering case study. Visitors can try fictional productivity tasks, ask general AI questions, practise technical interviews, and use browser-supported speech input and playback.
 
-**Public engineering case study — available.** The browser-based demo uses fictional local responses, while private authenticated workflows are a separate development layer. The dedicated Markdown files below are now maintained in this repository. The original PNG assets are retained in the [FlyRank evidence screenshot archive](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n) and referenced from the workflow atlas, rather than duplicating sensitive architecture images or merging them into the private portfolio source.
+| Experience | Available behavior | Boundary |
+| --- | --- | --- |
+| **Sample Demo** | Daily briefing, Inbox, Calendar, Projects, Career and GitHub examples | Fictional, predefined browser-local content; no OpenAI request |
+| **Live AI — General chat** | General questions, explanations and short follow-ups | OpenAI through a Netlify Function; answers may be inaccurate |
+| **Interview Practice** | AI/ML, full-stack or backend; beginner/intermediate; one question at a time, hints and constructive feedback | AI-generated educational coaching, not a hiring assessment or validated score |
+| **Voice** | Dictate a question, review the transcript, send it, and hear replies | Browser support and available voices vary; recognition may use the browser provider’s service |
+| **Guided tour** | Six local steps with Back, Next, Finish and Escape | No AI request; an overview rather than an automated product test |
+| **Visitor tools** | Suggested prompts, Copy answer, Reset and GitHub feedback drafts | Feedback is public when submitted; GitHub sign-in is required |
+| **Visual experience** | Original hijab-wearing NEXA character, speaking halo/bars, scroll reveals, hover transitions and reading progress | Decorative playback effects; precise lip sync is deferred |
 
-## Explore the case study
+No personal-project knowledge catalogue was added. The public site cannot read personal email, calendars, private repositories or long-term memory, and it does not execute n8n workflows or external actions.
 
-| Document | What you'll find |
-|---|---|
-| [Workflow architecture and screenshots](NEXA_WORKFLOWS.md) | The main agent, Gmail, GitHub, calendar, memory, operational intelligence, actions, monitoring and test probes |
-| [Public showcase testing](NEXA_TESTING_REPORT.md) | Sample UI checks, responsive captures, Lighthouse results and their limitations |
-| [Implementation roadmap](NEXT_CASE_STUDY_PLAN.md) | What's built, what is planned, technical decisions and the next portfolio milestone |
-| [Original FlyRank documentation](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs) | Official submission index, portfolio report and retrospective |
+## Try it
+
+1. Open [NEXA](https://nexa-public.netlify.app/). Use **Take a guided tour** for an overview.
+2. In **Try NEXA**, choose **Sample Demo** for fictional tasks or **Live AI** for general questions.
+3. In Live AI, select **Interview Practice**, choose a track and level, then **Start practice**.
+4. Type an answer or use **Microphone**, review the text, and press **Send**.
+5. Enable **Spoken replies**, or use **Read aloud** for an existing answer.
+6. Use **Copy answer**, **Stop speaking**, or **Reset chat** as needed.
+
+Live AI sends up to three recent completed exchanges for context, within a 6000-character history limit. This app clears its browser-held context on Reset, mode changes or refresh; changing interview track or level starts a new practice session. This is not persistent personal memory.
 
 ## Architecture and trust boundary
 
 ```mermaid
-flowchart LR
-    V[Public visitor] --> D[Public NEXA case-study demo]
-    D --> S[Fictional browser-local responses]
-    O[Future authenticated owner] -. planned .-> G[Private server-side gateway]
-    G -. planned .-> N[n8n workflow router]
-    N --> R[Read-only specialist workflows]
-    N -. gated design .-> A[Proposed approval-controlled actions]
+flowchart TD
+    V["Public visitor"] --> M{"Selected experience"}
+    M --> S["Sample Demo: local fictional replies"]
+    M --> F["Live AI: Netlify Function"]
+    F --> A["OpenAI: general chat or interview coaching"]
+    S --> R["Text, copying and optional browser speech"]
+    A --> R
+    O["Future authenticated owner"] -.-> G["Planned private gateway"]
+    G -.-> N["Separate n8n router"]
+    N --> W["Permitted read-only specialists"]
 ```
 
-**The dashed links describe planned integration, not a currently deployed public-to-private connection.** Credentials, owner-only services, raw workflow exports and personal records are not part of this public repository.
+There is no connection from the public paths to the private n8n route. The OpenAI key is handled server-side. Owner authentication and authorization for personal services remain future work.
 
-## Engineering evidence
+## Documentation
 
-Screenshots of the n8n editor are stored in the [existing FlyRank documentation repository](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n) and are referenced in the [workflow atlas](NEXA_WORKFLOWS.md). They demonstrate workflow structure, but cannot establish that every route passed real execution tests.
+| Document | Contents |
+| --- | --- |
+| [Workflow atlas](NEXA_WORKFLOWS.md) | 18 historical workflow definitions, screenshot links and publication-evidence limits |
+| [Testing report](NEXA_TESTING_REPORT.md) | Current source/build checks, ten mocked backend tests, user-observed behavior, historical Lighthouse results and remaining checks |
+| [Development roadmap](NEXT_CASE_STUDY_PLAN.md) | Completed public features, private-integration milestones and portfolio publication tasks |
+| [FlyRank evidence archive](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs) | Earlier submission material and original workflow screenshots |
 
-The public sample UI was visually exercised across ten observed cases. A supplied Lighthouse screenshot reported **100 Performance**, **96 Accessibility**, **100 Best Practices** and **100 SEO** for a particular audit run. These are not permanent guarantees or evidence of production authentication/security certification. See the [testing report](NEXA_TESTING_REPORT.md) for details.
+The existing gallery images describe an earlier dashboard prototype; they are not screenshots of every current feature. Original n8n images stay in the [existing screenshot archive](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n).
 
-## What is next?
+## Source, setup and costs
 
-The remaining work includes a read-only architecture/security assessment, authenticated gateway, integration-level tests, approved private specialist connections, honest voice/avatar capability labeling, and future addition as a complete case study on the [main portfolio](https://yasmeenazmat.com/).
+This repository contains documentation only. To run the public application:
 
-## Source and usage
+```bash
+git clone https://github.com/yasmeenmh90-beep/nexa-public.git
+cd nexa-public
+npm ci
+npm run dev
+```
 
-This repository contains **documentation**, not the runnable private NEXA assistant or private n8n workflow exports. Visitors can try the isolated [public example](https://nexa-public.netlify.app/). There is **no installation procedure for the private system in this repository**.
+Use Node.js 22. Vite alone serves the frontend and local samples; Live AI needs the Netlify Function environment. Follow the [application README](https://github.com/yasmeenmh90-beep/nexa-public#readme) for build, deployment and the server-only environment variable names.
 
-**Author:** Yasmeen Azmat Ali · 2026
+The implemented function validates requests, bounds history, applies a 20-second upstream timeout and requests at most 400 output tokens. Its Netlify rate-limit configuration is five requests per 60 seconds per IP/domain grouping. These controls are not a global spending cap or proof of account-budget configuration. Netlify usage and OpenAI API usage are separate.
+
+## Evidence and remaining work
+
+TypeScript compilation, a Vite production build, static rendered-HTML checks and **10 mocked backend tests** passed for the latest application update. Owner-provided recordings show tour navigation and the first interview question; a later screenshot shows feedback after an answer and the speech-playback state. Earlier voice, general chat, copying and follow-up tests were owner-confirmed.
+
+The next-question transition after feedback, all tour keyboard/focus cases, real-phone behavior and a complete accessibility review still need explicit evidence. Historical Lighthouse scores belong to an earlier release, not a new audit of the current site.
+
+Private authentication, personal-service connections, long-term memory, action execution and precise lip sync remain future work. See the [testing report](NEXA_TESTING_REPORT.md) for the exact evidence boundaries.
+
+**Application source reviewed:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7).  
+**Author:** Yasmeen Azmat Ali · 2026.

@@ -8,9 +8,9 @@
 
 ### Specialist intelligence · routing · operational controls · engineering evidence
 
-[![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC_DEMO-LIVE-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) ![EVIDENCE](https://img.shields.io/badge/EVIDENCE-17_SCREENSHOTS_LINKED_OF_18-64748b?style=flat-square) ![PRIVATE INTEGRATIONS](https://img.shields.io/badge/PRIVATE_INTEGRATION-NOT_PUBLIC-f59e0b?style=flat-square)
+[![PUBLIC DEMO](https://img.shields.io/badge/PUBLIC_DEMO-LIVE-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) ![EVIDENCE](https://img.shields.io/badge/EVIDENCE-18_SCREENSHOTS_LINKED-64748b?style=flat-square) ![PRIVATE INTEGRATIONS](https://img.shields.io/badge/PRIVATE_INTEGRATION-NOT_PUBLIC-f59e0b?style=flat-square)
 
-**Yasmeen Azmat Ali** · October 2026
+**Yasmeen Azmat Ali** · Updated 15 October 2026
 
 [**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
 
@@ -18,24 +18,31 @@
 
 ---
 
-> **Scope:** This atlas documents the **separate private n8n workflow foundation** using user-provided editor screenshots. It is **not** the source code for the [public NEXA case-study site](https://nexa-public.netlify.app/). The public site deliberately serves fictional, browser-local responses without calling these private workflows.
+> **Scope:** This atlas documents the **separate private n8n workflow foundation** using user-provided editor screenshots. It is **not** the source code for the [public NEXA case-study site](https://nexa-public.netlify.app/). The current public site offers fictional browser-local samples, general OpenAI chat, browser voice and Interview Practice. Its guided tour runs locally. None of these experiences calls the private n8n workflows.
 
 ## 01 · Architecture at a glance
 
 ```mermaid
-flowchart LR
-    A[Owner request] --> B[NEXA router / agent]
-    B --> C[Read-only specialists]
-    C --> D[Email / Calendar / GitHub]
-    C --> E[Portfolio / Career / Operations]
-    B --> F[Memory & actions]
-    F --> G[Separate approval / authorization required]
-    B --> H[Formatted response]
-    B -.-> I[Audit & error logging]
-    J[Public demo: fictional data] -. isolated .- B
+flowchart TD
+    subgraph Public["Public website: implemented"]
+        V["Visitor"] --> M{"Selected mode"}
+        M --> S["Local sample replies"]
+        M --> F["Netlify Function"]
+        F --> AI["OpenAI: chat or interview"]
+        S --> R["Text and optional browser speech"]
+        AI --> R
+    end
+    subgraph Private["Separate private design"]
+        O["Owner request"] -.-> G["Planned authenticated gateway"]
+        G -.-> N["n8n router"]
+        N --> W["Permitted read-only specialists"]
+        N -.-> A["Separately authorized memory and actions"]
+    end
 ```
 
-**Diagram status:** Conceptual view of the shown n8n workflows. It does not assert that the unpublished main agent or a protected public-to-private bridge is deployed. The public demo is isolated, not a live client of the router.
+**Diagram status:** Public sample/OpenAI paths are implemented. The private gateway is planned and has no connection to the public paths. n8n publication labels below are historical screenshot observations, not a fresh inspection of the owner environment.
+
+**Screenshot date:** The workflow observations below refer to the earlier supplied editor screenshots. Public voice, general chat and interview releases do not change or revalidate their private publication state.
 
 ## 02 · Implementation-status legend
 
@@ -50,28 +57,28 @@ flowchart LR
 
 | # | Workflow | Screenshot status | Principal responsibility |
 |:--:|:---|:---|:---|
-| 01 | [Gmail Specialist](#workflow-01) | Published | Classifies Gmail questions into routes such as inbox summaries, unread mail, important mail, sender searches a |
-| 02 | [Operational Intelligence](#workflow-02) | Published | Parses operational questions, reads the NEXA tracker in Google Sheets, distinguishes missing or empty records  |
-| 03 | [GitHub Intelligence](#workflow-03) | Published | Resolves a repository target, retrieves repository activity, recent commits, open issues and pull requests, an |
-| 04 | [Portfolio Intelligence](#workflow-04) | Published | Collects portfolio repository files and live project links, verifies reachable references, and assembles infor |
-| 05 | [Career Intelligence](#workflow-05) | Published | Combines NEXA tracker entries, GitHub repositories, portfolio READMEs and CV text to assemble career evidence  |
-| 06 | [Calendar Intelligence](#workflow-06) | Published | Resolves date-related questions, reads personal/FlyRank/UAE-holiday calendars and the NEXA tracker, then produ |
-| 07 | [Daily Intelligence](#workflow-07) | Unpublished / Publish shown | Plans a daily summary across calendar events, Gmail, tracker items, GitHub activity, career information and po |
-| 08 | [Memory Intelligence](#workflow-08) | Unpublished / Publish shown | Reads stored memories and pending confirmations |
-| 09 | [NEXA Main Agent](#workflow-09) | Unpublished / Publish shown | Central assistant receives a request, classifies it, routes it to specialist workflows, handles missing result |
-| 10 | [Action Intelligence](#workflow-10) | Unpublished / Publish shown | Coordinates action requests with confirmation checks, calendar context, approval branches, action execution, a |
-| 11 | [Proactive Intelligence](#workflow-11) | Unpublished / Publish shown | Checks settings, analyzes recent activity across connected services, considers whether a proactive update is w |
-| 12 | [Control Center](#workflow-12) | Unpublished / Publish shown | Validates an incoming dashboard request, gathers operational/health/audit records, renders a dashboard payload |
-| 13 | [Error Logger](#workflow-13) | Published | Captures workflow errors, sanitizes/categorizes event data, checks whether the event should be recorded, and w |
+| 01 | [Gmail Specialist](#workflow-01) | Published | Classifies Gmail questions into routes such as inbox summaries, unread mail, important mail, sender searches and follow-ups; fetches Gmail messages and prepares an AI-formatted answer. |
+| 02 | [Operational Intelligence](#workflow-02) | Published | Parses operational questions, reads the NEXA tracker in Google Sheets, distinguishes missing or empty records from valid records, and prepares an operational analysis. |
+| 03 | [GitHub Intelligence](#workflow-03) | Published | Resolves a repository target, retrieves repository activity, recent commits, open issues and pull requests, and summarizes developer context with fallback branches. |
+| 04 | [Portfolio Intelligence](#workflow-04) | Published | Collects portfolio repository files and live project links, verifies reachable references, and assembles information for a portfolio answer. |
+| 05 | [Career Intelligence](#workflow-05) | Published | Combines NEXA tracker entries, GitHub repositories, portfolio READMEs and CV text to assemble career evidence and tailored analysis. |
+| 06 | [Calendar Intelligence](#workflow-06) | Published | Resolves date-related questions, reads personal/FlyRank/UAE-holiday calendars and the NEXA tracker, then produces an availability or scheduling summary. |
+| 07 | [Daily Intelligence](#workflow-07) | Unpublished / Publish shown | Plans a daily summary across calendar events, Gmail, tracker items, GitHub activity, career information and portfolio sources, with missing-source fallbacks. |
+| 08 | [Memory Intelligence](#workflow-08) | Unpublished / Publish shown | Reads stored memories and pending confirmations; interprets requests to read, modify, delete or confirm stored information; includes a credential-refusal path. |
+| 09 | [NEXA Main Agent](#workflow-09) | Unpublished / Publish shown | Central assistant receives a request, classifies it, routes it to specialist workflows, handles missing results and formatting, and records audit metadata. |
+| 10 | [Action Intelligence](#workflow-10) | Unpublished / Publish shown | Coordinates action requests with confirmation checks, calendar context, approval branches, action execution, and an audit trail. |
+| 11 | [Proactive Intelligence](#workflow-11) | Unpublished / Publish shown | Checks settings, analyzes recent activity across connected services, considers whether a proactive update is warranted, and prepares a response. |
+| 12 | [Control Center](#workflow-12) | Unpublished / Publish shown | Validates an incoming dashboard request, gathers operational/health/audit records, renders a dashboard payload and sends the response. |
+| 13 | [Error Logger](#workflow-13) | Published | Captures workflow errors, sanitizes/categorizes event data, checks whether the event should be recorded, and writes a health event. |
 | 14 | [Sub-workflow Error Probe](#workflow-14) | Test / Unpublished | Small deliberate-failure sub-workflow used to test error propagation from a called workflow. |
 | 15 | [Error Capture Probe](#workflow-15) | Archived test | Archived webhook-triggered probe intended to generate a deliberate failure and inspect error capture. |
 | 16 | [Sub-workflow Probe Caller](#workflow-16) | Test / Unpublished | Webhook-driven test caller invokes a failing sub-workflow to exercise error propagation. |
-| 17 | [GitHub Tracker Sync](#workflow-17) | Unpublished / Publish shown | Six-hour scheduling design lists repositories, reads the tracker, normalizes and deduplicates, fetches README, |
+| 17 | [GitHub Tracker Sync](#workflow-17) | Unpublished / Publish shown | Six-hour scheduling design lists repositories, reads the tracker, normalizes and deduplicates, fetches README, classifies a new repository and writes/verifies a tracker entry. |
 | 18 | [Starter Sub-workflow](#workflow-18) | Placeholder / Unpublished | Generic 'When Executed by Another Workflow' template with a replace-me node, included as development context. |
 
 ## 04 · Individual workflow walkthroughs
 
-> **Screenshot status:** 17 of the 18 catalogue entries have confirmed PNG links under [`assets/n8n/`](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n), including the newly verified Probe Caller and Starter Sub-workflow. The Sub-workflow Error Probe still needs its exact repository image filename confirmed. These are editor screenshots, **not execution-level validation**. Review all images for personal or secret information.
+> **Screenshot paths:** All **18 of 18** referenced PNG paths were confirmed in the existing [`assets/n8n/`](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/tree/main/assets/n8n) archive on **15 October 2026**, including `SubWorkflow-ErrorProbe.png`. File existence is not execution evidence or a fresh image/privacy audit. No images were duplicated or newly uploaded by this update.
 
 <a id="workflow-01"></a>
 
@@ -279,7 +286,7 @@ flowchart LR
 - Small deliberate-failure sub-workflow used to test error propagation from a called workflow.
 - **Evidence boundary:** A workflow diagram is a test setup, not evidence of a passed test.
 
-**Workflow screenshot 15** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflow-ErrorProbe.png)
+**Workflow screenshot 14** · [Full-size image](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/assets/n8n/SubWorkflow-ErrorProbe.png)
 
 ![Sub-workflow Error Probe n8n workflow architecture](https://raw.githubusercontent.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/main/assets/n8n/SubWorkflow-ErrorProbe.png)
 
@@ -349,8 +356,8 @@ flowchart LR
 | Public case-study website | Separate n8n workflows |
 |:---|:---|
 | [nexa-public.netlify.app](https://nexa-public.netlify.app/) | Owner-controlled n8n environment |
-| Browser-local sample data | Service-specific workflow definitions |
-| Fictional, deterministic demonstration replies | Some workflows integrate with Gmail, Google Calendar, Google Sheets and GitHub |
+| Local samples; separate server-backed general chat and interview practice | Service-specific workflow definitions |
+| Fictional sample replies OR OpenAI answers; optional browser speech | Some historical workflow definitions integrate with Gmail, Google Calendar, Google Sheets and GitHub |
 | No private n8n request path demonstrated | Authenticated backend connection is a future milestone |
 | Public for portfolio reviewers | Not intended to be publicly callable |
 
@@ -364,12 +371,14 @@ flowchart LR
 ## 07 · Milestones and remaining work
 
 - [x] Build the public NEXA case-study website and fictional interactive demo
+- [x] Add public OpenAI chat, bounded follow-ups, browser speech, copying and feedback links
+- [x] Add Interview Practice and a local guided tour without personal-project knowledge
 - [x] Document the NEXA public-demo testing in [NEXA_TESTING_REPORT.md](NEXA_TESTING_REPORT.md)
 - [x] Capture screenshots of 18 n8n workflow definitions, including test and placeholder workflows
 - [x] Prepare architecture descriptions, workflow inventory and truthful status labels
-- [x] Upload and embed **17 of 18** n8n screenshots with confirmed repository image paths
+- [x] Link all **18 of 18** existing n8n screenshots; confirm their archive paths
 - [x] Link the **Sub-workflow Probe Caller** and **Starter Sub-workflow** PNGs by their verified filenames
-- [ ] Confirm the filename/path and embed the **Sub-workflow Error Probe** screenshot
+- [x] Confirm the **Sub-workflow Error Probe** path: `SubWorkflow-ErrorProbe.png`
 - [ ] Record sanitized execution-level evidence for each intended integration
 - [ ] Design and implement an authenticated, authorized owner-only API boundary
 - [ ] Verify action approvals, storage/privacy protections, and operational monitoring

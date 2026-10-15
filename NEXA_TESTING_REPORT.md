@@ -1,140 +1,134 @@
-<!-- This document belongs to the dedicated NEXA public engineering case-study repository. The image archive is linked from the original FlyRank submission; the private portfolio source is maintained in a different private repository. -->
+# NEXA — Testing and Evidence Report
 
-<div align="center">
+[Overview](README.md) · [Workflow atlas](NEXA_WORKFLOWS.md) · [Testing report](NEXA_TESTING_REPORT.md) · [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-<sub><strong>NEXA  /  PUBLIC SHOWCASE QUALITY ASSURANCE</strong></sub>
+**Updated: 15 October 2026**  
+**Public target:** [nexa-public.netlify.app](https://nexa-public.netlify.app/)  
+**Application source:** [nexa-public](https://github.com/yasmeenmh90-beep/nexa-public), revision [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7)
 
-# ✦ NEXA Testing Report
+This report distinguishes source/build checks, mocked backend tests, owner-confirmed behavior, visible recordings/screenshots and outstanding validation. It is not a complete security audit or accessibility certification.
 
-### Functional Demonstration · Responsive Review · Lighthouse
+## Current release: 15 October 2026
 
-Documented browser observations and user-supplied screenshots, with explicit distinctions between verified sample UI behavior and untested private integrations.
+### Automated and static checks
 
-[![CORE DEMO: 10 OF 10 OBSERVED](https://img.shields.io/badge/CORE_DEMO-10_OF_10_OBSERVED-22c55e?style=flat-square)](https://nexa-public.netlify.app/) &nbsp; [![LIGHTHOUSE: 100 PERF](https://img.shields.io/badge/LIGHTHOUSE-100_PERF-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) &nbsp; [![ACCESSIBILITY: 96 OF 100](https://img.shields.io/badge/ACCESSIBILITY-96_OF_100-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/)
+| Check | Recorded result | What it establishes |
+| --- | --- | --- |
+| TypeScript compilation | Passed | Source/component type consistency |
+| Vite production bundle | Passed | Public frontend bundles successfully |
+| Backend tests | **10 passed** | Request handling and configured API payload behavior with OpenAI mocked |
+| Static React render | Passed | Unique IDs, valid local anchors/assets, existing tour destinations and dialog labels |
+| Motion lifecycle checks | Passed for the motion release | Reveal setup, reduced-motion/unsupported-observer fallback and listener cleanup |
+| Deployment assets | Updated feature bundles detected on the public host | New client code reached the host; not a full browser interaction test |
 
-**Yasmeen Azmat Ali** · 2026
+Reproduce application checks from the source repository, not from this documentation-only repository:
 
-[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
+```bash
+npm ci
+npm run typecheck
+npm run build
+node --test tests/chat.test.mjs
+```
 
-</div>
+The test suite covers:
 
----
+1. Forwarding bounded follow-up context while dropping extra history-item fields.
+2. A first question without history.
+3. Rejecting privileged roles, invalid order and oversized/malformed history.
+4. Accepting the maximum permitted history.
+5. Rejecting invalid messages and oversized payloads without an upstream call.
+6. Disabled-chat and foreign-origin handling.
+7. Generic upstream-throttling errors without leaking upstream error content.
+8. Fixed interview track/level instructions and educational coaching boundaries.
+9. Rejecting unsupported purposes and interview settings.
+10. Keeping general chat separate from interview instructions.
 
-> **On this page:** [Scope](#01--test-scope) · [Lighthouse](#02--lighthouse-results) · [Demo cases](#03--public-demo-functional-results) · [Network observations](#04--network-and-privacy-observation) · [Limits](#06--outcome-and-boundaries)
+Tests do **not** call a live model, validate coaching quality, prove Netlify’s deployed throttling behavior, or certify production security.
 
----
+### Browser and owner-supplied observations
 
+| Feature | Evidence available | Status / limit |
+| --- | --- | --- |
+| General Live AI answers | Owner reports successful written answers | User-confirmed |
+| Follow-up context, copying and suggestions | Owner confirmed the requested visitor-tool tests worked | User-confirmed; no isolated per-control automated browser log |
+| Speech recognition | Owner confirmed dictated text appeared after the recognition fix | User-confirmed; browser/provider dependent |
+| Spoken replies | Owner reports audible replies; later screenshot displays Speaking / Voice playing | User-confirmed audio; screenshot proves UI state, not sound quality |
+| Speaking halo and bars | Screenshots/recordings show playback visuals | Visually observed; no mouth synchronization |
+| Guided tour | Recording shows opening and navigation between sections | Visually observed; full Back/Escape/focus/phone coverage still pending |
+| Interview start | Recording shows the supervised-versus-unsupervised-learning question | Visually observed |
+| Interview feedback | Screenshot shows a submitted answer, a Strength response and the start of an Improvement section | Visually observed |
+| Next interview question after feedback | Not visible in the supplied final feedback screenshot | Still needs explicit verification |
+| Current desktop presentation | Supplied scrolling recordings | No obvious overlap in sampled views; not frame-by-frame performance measurement |
+| Current mobile/tablet and accessibility | Not comprehensively evidenced after the latest redesign | Pending device and assistive-technology review |
 
-> **Evidence standard.** This report records screenshots supplied by the project owner and the owner's report that all remaining navigation and accessibility checks passed on **October 13, 2026**. The Lighthouse scores are directly visible in a supplied Chrome screenshot. These observations **do not represent an independent penetration test or comprehensive accessibility certification**. Public n8n workflow screenshots are linked from the workflow atlas; screenshots documenting demo interactions and Lighthouse are available in the participant's submitted evidence and are not embedded in this Markdown document.
+The October 15 recordings/screenshots were supplied in the project conversation. They are not embedded or publicly hosted by this documentation update. Do not infer unobserved outcomes from a screenshot of a control.
 
-## 01 · Test scope
+## Current network and data behavior
 
-**Target:** [https://nexa-public.netlify.app/](https://nexa-public.netlify.app/)  
-**Test period:** October 13, 2026  
-**Application:** Public NEXA engineering case-study website, React / TypeScript / Vite / Tailwind CSS  
-**Excluded:** Future owner-only application at `nexa.yasmeenazmat.com`, production identity verification, private n8n API integration and actual speech capabilities
+- **Sample Demo** selects fictional local replies and does not call OpenAI.
+- **Live AI** sends a submitted message, bounded recent user/assistant history and selected experience settings to `/api/chat`. The server calls OpenAI.
+- History is limited to six alternating messages, up to 2000 characters each and 6000 characters total.
+- Reset, mode changes and refresh clear this app’s browser-held context. Interview track/level changes also start a new session.
+- Browser voice recognition may use the browser provider’s speech service.
+- Public chat does not connect to n8n, personal email/calendar services, private repositories or long-term memory.
+- Feedback links open public GitHub issue drafts. They do not automatically submit an issue or attach conversation text.
 
-The public showcase intentionally uses **fictional, locally predefined demo responses**, not live personal accounts or a private NEXA backend.
+The function source configures a 48,000-byte body limit, 1–1500-character current message, a 20-second upstream timeout, 400 output-token limit and a five-per-minute IP/domain rate limit. A configured origin check is not authentication; rate limiting is not an account-wide spending cap. Account budgets and deployed enforcement need separate review.
 
-## 02 · Lighthouse results
+## Historical baseline: 13 October 2026
 
-A screenshot of the Chrome Lighthouse audit, taken while the browser's **iPad Mini 768 × 1024 device preset** was selected, shows:
+The following results belong to an **earlier fictional sample-only release**. They remain useful historical evidence, but are not current-release scores.
 
-| Audit category | Reported score | Interpretation |
-|:---|---:|:---|
-| Performance | **100 / 100** | Excellent score for this individual measured run |
-| Accessibility | **96 / 100** | Strong automated score; review remaining audit findings |
-| Best Practices | **100 / 100** | No deductions in the displayed Lighthouse category |
-| SEO | **100 / 100** | No deductions in the displayed Lighthouse category |
+### Lighthouse
 
-These are **one-run Lighthouse scores**, not guarantees across all devices, network conditions, routes or future deployments. The screenshot does not show the underlying Accessibility findings or conclusively identify which Lighthouse mode was selected.
+A supplied Chrome screenshot with the iPad Mini 768 × 1024 device preset visible reported:
 
-## 03 · Public-demo functional results
+| Category | Historical score |
+| --- | ---: |
+| Performance | 100 / 100 |
+| Accessibility | 96 / 100 |
+| Best Practices | 100 / 100 |
+| SEO | 100 / 100 |
 
-| Case | Tested behavior | Evidence and result |
-|:---|:---|:---|
-| D01 · Daily briefing | Displays fictional priorities, review and tasks | **Visually demonstrated** with a clearly labeled sample reply |
-| D02 · Inbox | Displays example inbox summary | **Visually demonstrated**; disclaimer states no mailbox accessed |
-| D03 · Calendar | Shows fictional design review and planning events | **Visually demonstrated**; fictional status stated |
-| D04 · Projects | Displays illustrative project status | **Visually demonstrated**; no project-service read claimed |
-| D05 · Career | Displays fictional applied-AI opportunity and next step | **Visually demonstrated**; not a live vacancy |
-| D06 · GitHub | Displays illustrative repository and issue update | **Visually demonstrated**; no GitHub account access claimed |
-| D07 · Reset | Clears conversation and restores welcome state | **Visually demonstrated** |
-| D08 · Avatar states | Idle / Listening / Thinking / Speaking controls show distinct labels and visual cues | **Visually demonstrated**; no microphone recording or audio claimed |
-| D09 · Unsupported request | Question about quantum computing produces clear predefined-demo fallback | **Visually demonstrated** |
-| D10 · Privacy-sensitive request | Request for private access tokens produces the predefined-demo fallback; no secrets shown | **Visually demonstrated** |
+One audit run does not establish all-device performance or accessibility compliance. The screenshot did not include complete findings or conclusively identify the audit mode. These scores have **not** been rerun for the voice/interview/animation release.
 
-**Core demo summary: 10/10 cases showed the expected visible behavior in user-provided screenshots.** These are *interaction-observation cases*, not ten independent automated unit or integration tests.
+### Ten historical sample observations
 
-## 04 · Network and privacy observation
+| Case | Recorded visible behavior |
+| --- | --- |
+| D01 · Daily briefing | Fictional priorities and tasks shown |
+| D02 · Inbox | Example summary; no mailbox accessed |
+| D03 · Calendar | Fictional design-review/planning events |
+| D04 · Projects | Illustrative status; no project service queried |
+| D05 · Career | Fictional opportunity, not a live vacancy |
+| D06 · GitHub | Illustrative repository/issue update |
+| D07 · Reset | Conversation cleared |
+| D08 · Avatar previews | Visual state labels changed; audio was not part of that release |
+| D09 · Unsupported request | Clear sample-demo fallback |
+| D10 · Sensitive request | Sample fallback; no credentials displayed |
 
-Chrome DevTools was opened on the deployed NEXA public URL, with the **Fetch/XHR** filter selected. During demonstrated sample actions, the captured table displayed **zero matching entries** (`0 / 4` in one screenshot; `0 / 5` in a separate mobile-demo screenshot).
+These **10 historical UI observations** are different from the **10 current automated backend tests**.
 
-- No private n8n requests were **visible in those filtered captures**.
-- Visible sample responses consistently stated that no personal mailbox, repository, AI service or private integration was contacted.
-- This provides **limited supporting evidence** for the browser-local demonstration boundary.
+Historical Fetch/XHR captures showed zero matching entries during the demonstrated local sample actions. That does not mean the current Live AI site makes no network requests. A filtered snapshot also cannot exclude all other request types or security issues.
 
-**Limit:** A filtered snapshot cannot exclude all other network request types, other sessions, extensions, security vulnerabilities or undisclosed server behavior. The private system was not connected or security-audited as part of this public showcase test.
+Earlier responsive captures included 320 px, 440 × 956 and 768 × 1024 views. The owner reported navigation and keyboard checks for that earlier version; those reports do not automatically transfer to the latest redesigned release.
 
-## 05 · Usability, mobile and navigation
+## Remaining validation
 
-| Area | Evidence or report | Outcome |
-|:---|:---|:---|
-| **Mobile homepage** | Chrome responsive preview at **320 px**, plus iPhone 16 Pro Max **440 × 956** preset | Text and hero content visibly rearranged vertically; no obvious homepage clipping in captures |
-| **Mobile demo** | Sample Daily Briefing reply, quick actions, avatar and composer visible at **440 × 956** | **Visually demonstrated** |
-| **Tablet / external links** | iPad Mini **768 × 1024** browsing captures for GitHub, personal portfolio and LinkedIn | All three opened their destinations; LinkedIn prompted for sign-in |
-| **FAQ interactions** | Three relevant FAQ answers expanded, including separation from private app and account data | **Visually demonstrated** |
-| **Navigation anchors** | Owner reported all menu/anchor checks passed | **User-confirmed**; no per-link test log attached here |
-| **Keyboard access and usability** | Owner reported all accessibility checks passed | **User-confirmed**; detailed key-by-key evidence not provided |
-| **Lighthouse accessibility** | Chrome audit screenshot | **96 / 100** |
+- Complete one interview answer → feedback → next-question cycle in each intended track.
+- Verify hints refer to the current question and general chat stays separate.
+- Test Reset, mode/track changes and request cancellation while a reply is pending.
+- Test the tour’s Back, Finish, Escape, focus trapping/restoration and small-screen placement.
+- Check current 320–430 px phone layouts, tablets, zoom, focus order, contrast and screen readers.
+- Test microphone denial/unavailability, unsupported recognition, audio failure and Stop speaking.
+- Inspect current network behavior; verify no secret reaches browser bundles.
+- Review deployed request limits, dependencies, Netlify credits and OpenAI spending settings.
+- Rerun Lighthouse for the current release and publish dated findings if desired.
 
-**Further review recommended:** Real-phone touch targets, keyboard focus order, screen-reader semantics, browser zoom, and the exact reason for the four-point accessibility deduction. In a few earlier screenshots the Demo heading was partially hidden under the sticky header at some scroll positions; verify anchor offsets in the final published build.
+Private owner authentication, private n8n integration, approval-controlled actions and persistent memory remain outside the validated public scope. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
 
-## 06 · Outcome and boundaries
+## Related evidence
 
-The public NEXA showcase has a working, visually demonstrated **fictional sample-interaction experience**, a case-study narrative and clear public/private architecture disclosures. The participant reports completing navigation and manual accessibility checks; a Lighthouse run returned **100 Performance, 96 Accessibility, 100 Best Practices and 100 SEO**.
-
-**Not yet implemented or not validated by this report:**
-
-- Owner-only authentication and secure production session management
-- Private React-to-n8n gateway integration and live specialist responses in the new website
-- Real microphone capture, speech recognition, speech synthesis or lip synchronization
-- Comprehensive security testing, accessibility compliance audit, and cross-browser/real-device certification
-
-## 07 · FlyRank submission evidence
-
-| Deliverable | Link / source |
-|:---|:---|
-| NEXA public engineering showcase | [nexa-public.netlify.app ↗](https://nexa-public.netlify.app/) |
-| Second capstone continuation plan | [NEXT_CASE_STUDY_PLAN.md](NEXT_CASE_STUDY_PLAN.md) |
-| This testing report | `NEXA_TESTING_REPORT.md` |
-| Demo interaction, FAQ, mobile, external-link and Lighthouse screenshots | Owner-supplied submission/chat evidence; not uploaded publicly |
-| NEXA private deployment | **Planned**, not a public deliverable |
-
----
-
-## 08 · Relation to FlyRank FL-09 evaluation
-
-This testing report evaluates the **NEXA public sample interface**, not the separate [FlyRank AI/ML portfolio](https://yasmeenazmat.com/) demonstrated in the [3:07 video](https://www.youtube.com/watch?v=45gVlp1G5Wk).
-
-| Evidence | Actual recorded result | Evaluation boundary |
-|:---|:---|:---|
-| NEXA sample interaction cases | **10/10** visually observed behaviors | Screenshot-based UI checks; not automation or backend execution |
-| NEXA Lighthouse | Performance **100**, Accessibility **96**, Best Practices **100**, SEO **100** | One displayed audit run; no exact mode or full findings provided |
-| NEXA Fetch/XHR inspection | **0** entries matched the selected filter during captures | Cannot rule out other request types or sessions |
-| NEXA n8n workflow atlas | **18** documented workflow designs, with images listed in [the workflow atlas](NEXA_WORKFLOWS.md) | Screenshots demonstrate routing designs and publication indicators, not end-to-end execution |
-| FlyRank portfolio | Earlier PageSpeed desktop **98**, mobile **71–72** | Separate project and earlier build; do not combine with NEXA Lighthouse |
-
-**No unsupported performance claims:** No measured agent task success rate, latency distribution, live-model accuracy, or controlled v2-versus-v1 comparison has been supplied. Therefore none is inferred from these screenshots. For the strict FL-09 reproducibility requirement, consult the [portfolio README's FL-09 assessment](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/README.md): the full source remains private.
-
----
-
-<div align="center">
-
-**Built with care · Evaluated with evidence · Presented with transparency**
-
-[**NEXA Overview**](README.md) &nbsp;·&nbsp; [**Workflow Atlas**](NEXA_WORKFLOWS.md) &nbsp;·&nbsp; [**Testing Report**](NEXA_TESTING_REPORT.md) &nbsp;·&nbsp; [**Development Roadmap**](NEXT_CASE_STUDY_PLAN.md) &nbsp;·&nbsp; [**FlyRank Portfolio Evidence**](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md)
-
-<sub>FlyRank General AI Fluency · Yasmeen Azmat Ali · 2026</sub>
-
-</div>
+- [Workflow atlas](NEXA_WORKFLOWS.md): 18 historical workflow definitions and screenshot paths; editor state is not execution success.
+- [Roadmap](NEXT_CASE_STUDY_PLAN.md): completed public work and future private integration.
+- [Original FlyRank submission index](https://github.com/yasmeenmh90-beep/flyrank-ai-fluency-portfolio-docs/blob/main/FINAL_SUBMISSION_INDEX.md): earlier submission context.
