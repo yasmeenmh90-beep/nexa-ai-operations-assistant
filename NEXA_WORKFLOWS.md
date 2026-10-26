@@ -86,6 +86,20 @@ flowchart TD
 | 17 | [GitHub Tracker Sync](#workflow-17) | Unpublished / Publish shown | Six-hour scheduling design lists repositories, reads the tracker, normalizes and deduplicates, fetches README, classifies a new repository and writes/verifies a tracker entry. |
 | 18 | [Starter Sub-workflow](#workflow-18) | Placeholder / Unpublished | Generic 'When Executed by Another Workflow' template with a replace-me node, included as development context. |
 
+<a id="desktop-additions"></a>
+
+### Status update and additions · 25–26 October 2026
+
+The statuses in the table above come from the original screenshots. For the private desktop release, the owner published **Action Intelligence**, **Proactive Intelligence** and the updated **Desktop Connection** router on 25 October 2026, and added three workflows that do not yet have screenshots:
+
+| # | Workflow | Status | Principal responsibility |
+|:--:|:---|:---|:---|
+| 19 | Desktop Connection | Published (owner-reported) | Authenticated chat webhook for the desktop app. Routes intents to the read specialists and, since 25 October, to Action Intelligence; memory changes and proactive requests from chat stay disabled. Writes an audit row per request. |
+| 20 | Desktop Alerts Feed | Published (owner-reported) | Read-only, Basic Auth webhook returning deliverable HIGH/CRITICAL alerts from the last 24 hours. |
+| 21 | Proactive Monitor Schedule | Published (owner-reported) | Runs calendar-reminder, deadline and important-email monitors hourly from 08:15 to 21:15 (Asia/Dubai). |
+
+Action Intelligence also gained a second claim check (wait, re-read, verify token) before executing, and Action, Proactive and the new workflows no longer save execution data.
+
 <a id="walkthroughs"></a>
 
 ## 04 · Individual workflow walkthroughs
@@ -426,7 +440,7 @@ flowchart TD
 | [nexa-public.netlify.app](https://nexa-public.netlify.app/) | Owner-controlled n8n environment |
 | Local samples; separate server-backed general chat and interview practice | Service-specific workflow definitions |
 | Fictional sample replies OR OpenAI answers; optional browser speech | Some historical workflow definitions integrate with Gmail, Google Calendar, Google Sheets and GitHub |
-| No private n8n request path demonstrated | Authenticated backend connection is a future milestone |
+| No private n8n request path | Reached only from the owner's private desktop app (HTTPS + Basic Auth) |
 | Public for portfolio reviewers | Not intended to be publicly callable |
 
 <a id="evidence"></a>
@@ -451,10 +465,12 @@ flowchart TD
 - [x] Link all **18 of 18** existing n8n screenshots; confirm their archive paths
 - [x] Link the **Sub-workflow Probe Caller** and **Starter Sub-workflow** PNGs by their verified filenames
 - [x] Confirm the **Sub-workflow Error Probe** path: `SubWorkflow-ErrorProbe.png`
-- [ ] Record sanitized execution-level evidence for each intended integration
-- [ ] Design and implement an authenticated, authorized owner-only API boundary
-- [ ] Verify action approvals, storage/privacy protections, and operational monitoring
-- [ ] Publish/test only workflows selected for private deployment
+- [x] Design and implement an authenticated owner-only boundary (desktop app → n8n webhook with Basic Auth)
+- [x] Verify action approvals end to end (email send, calendar create and delete)
+- [x] Publish only the workflows selected for the private desktop release
+- [ ] Record sanitized execution-level evidence for each integration
+- [ ] Capture screenshots of workflows 19–21
+- [ ] Observe live proactive notifications
 
 ---
 

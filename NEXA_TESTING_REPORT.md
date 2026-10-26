@@ -10,11 +10,11 @@
 
 What passed, what was observed, and what remains to be checked.
 
-[![Backend tests: 10 passed](https://img.shields.io/badge/Backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
+[![Public backend tests: 10 passed](https://img.shields.io/badge/Public%20backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Private desktop tests: 26 passed](https://img.shields.io/badge/Private%20desktop%20tests-26%20passed-39745d?style=flat-square)](#private-release) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
 
 [Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; **Testing report** &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-<sub>RELEASE SNAPSHOT · 15 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+<sub>RELEASE SNAPSHOT · 26 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
@@ -32,15 +32,63 @@ What passed, what was observed, and what remains to be checked.
 | Static render + motion lifecycle | Sample-interface history | Current Lighthouse and operating controls |
 
 **On this page**  
-[Current release](#current-release) · [Data flow](#network-behavior) · [Historical baseline](#historical-baseline) · [Remaining checks](#remaining-checks) · [Related evidence](#related-evidence)
+[Private desktop release](#private-release) · [Public release](#current-release) · [Data flow](#network-behavior) · [Historical baseline](#historical-baseline) · [Remaining checks](#remaining-checks) · [Related evidence](#related-evidence)
 
 ---
+
+<a id="private-release"></a>
+
+## 00 · Private desktop release: 25 October 2026
+
+The private desktop app and its n8n workflows are not public. Results below come from the build environment (automated) and from the owner running the app on her Mac (end to end). Personal email and calendar content is deliberately not reproduced here.
+
+### Automated checks (desktop app)
+
+| Check | Result |
+| --- | --- |
+| TypeScript compilation | Passed |
+| Vite production build | Passed |
+| Automated tests (`node --test`) | **26 passed, 0 failed** |
+| Fresh install from the release ZIP | Tests passed again after `npm ci` |
+
+<details>
+<summary><strong>What the 26 tests cover</strong></summary>
+
+- **n8n connection (5):** only HTTPS n8n Cloud production URLs; no embedded credentials or query strings; Basic Auth header; session rotation on Reset and reuse for confirmations; 1–2000 character messages; malformed replies and authentication errors handled without leaking upstream text.
+- **Action previews (3):** detects each Action Intelligence preview and its exact approval phrase; ignores ordinary replies and unexpected phrases; 15-minute expiry.
+- **Alerts (7):** feed URL validation; item validation and trimming; Basic Auth GET; each alert notifies once, including after a restart; at most five notifications per check plus a summary; failed checks reported safely; no checks between 23:00 and 07:00.
+- **Existing desktop tests (11):** desktop setup (2), window lifecycle (4), local Ollama requests (4) and bounded microphone audio (1).
+
+</details>
+
+### Owner end-to-end tests (25 October, through the desktop app)
+
+| # | Test | Observed result |
+| --- | --- | --- |
+| 1 | Tomorrow's calendar | Three calendars read; empty day reported correctly with a free window |
+| 2 | Unread important email | Two real unread messages summarised with reasons |
+| 3 | Projects needing attention | Ranked list grounded in the tracker, with last-updated dates |
+| 4 | Recent GitHub activity | Newest commits across repositories, with UTC times |
+| 5 | Projects for an AI/ML internship | Evidence-tagged answer citing CV, portfolio, READMEs and tracker |
+| 6 | Portfolio links | 40 links checked; two demos reported as temporarily unavailable (HTTP 503), none broken |
+| 7 | Plan tomorrow | Time-blocked plan from calendar, Gmail and tracker; nothing added to the calendar |
+| 8 | Free-form availability question | Correct afternoon window (previously rejected by the app) |
+| 9 | Send email to self | Preview → Approve → "Gmail confirmed it as sent"; message received |
+| 10 | Create, then delete, a calendar event | Preview → confirm → Google Calendar confirmed creation; deletion targeted the same event ID and was confirmed |
+
+**Found during testing:** asking to plan *tomorrow* produced a heading that said "TODAY" with tomorrow's date (cosmetic, in the Daily specialist's wording).
+
+### Not yet verified
+
+- A real proactive alert arriving as a macOS notification (schedule and feed were published 25 October, during quiet hours).
+- Cancel and 15-minute expiry in real use (covered by automated tests and the workflow design, not yet observed end to end).
+- Two near-simultaneous confirmations of the same action (protected by a claim token plus a 3-second re-check; reduces the risk but does not make it provably impossible).
 
 <a id="current-release"></a>
 
 > **Reviewed application source:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7). This documentation styling update does not rerun those engineering checks.
 
-## 01 · Current release: 15 October 2026
+## 01 · Public website release: 15 October 2026
 
 ### Automated and static checks
 
@@ -177,7 +225,7 @@ Earlier responsive captures included 320 px, 440 × 956 and 768 × 1024 views. T
 - Review deployed request limits, dependencies, Netlify credits and OpenAI spending settings.
 - Rerun Lighthouse for the current release and publish dated findings if desired.
 
-Private owner authentication, private n8n integration, approval-controlled actions and persistent memory remain outside the validated public scope. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
+The public website still has no owner authentication, n8n connection or actions; those exist only in the private desktop release above. Memory changes from chat remain disabled. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
 
 <a id="related-evidence"></a>
 

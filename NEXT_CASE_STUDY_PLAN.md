@@ -10,24 +10,24 @@
 
 The public release is available. The next milestones stay explicit.
 
-[![Public experience: Released](https://img.shields.io/badge/Public%20experience-Released-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) [![Validation: In progress](https://img.shields.io/badge/Validation-In%20progress-b7791f?style=flat-square)](NEXA_TESTING_REPORT.md) [![Private integration: Planned](https://img.shields.io/badge/Private%20integration-Planned-64748b?style=flat-square)](#private-integration)
+[![Public experience: Released](https://img.shields.io/badge/Public%20experience-Released-8b5cf6?style=flat-square)](https://nexa-public.netlify.app/) [![Validation: In progress](https://img.shields.io/badge/Validation-In%20progress-b7791f?style=flat-square)](NEXA_TESTING_REPORT.md) [![Private integration: Desktop release](https://img.shields.io/badge/Private%20integration-Desktop%20release-39745d?style=flat-square)](#private-integration)
 
 [Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; [Testing report](NEXA_TESTING_REPORT.md) &nbsp; / &nbsp; **Roadmap**
 
-<sub>RELEASE SNAPSHOT · 15 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+<sub>RELEASE SNAPSHOT · 26 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
 ---
 
 > [!NOTE]
-> **Current position:** public voice, Live AI, Interview Practice and the guided tour are released. Private authentication and personal-service integration remain separate future work.
+> **Current position:** the public website (voice, Live AI, Interview Practice, guided tour) is released. A private desktop assistant now connects to the owner-only n8n workflows, with approval-gated email and calendar actions (25 October 2026). Memory changes from chat remain disabled.
 
 <table>
 <tr>
 <td width="33%"><h3>01 · Available</h3><p>Public AI, samples, voice and practice.</p></td>
 <td width="33%"><h3>02 · Validate</h3><p>Devices, accessibility, costs and walkthrough.</p></td>
-<td width="33%"><h3>03 · Integrate privately</h3><p>Review architecture before owner-only access.</p></td>
+<td width="33%"><h3>03 · Private assistant</h3><p>Desktop app, n8n specialists and approved actions.</p></td>
 </tr>
 </table>
 
@@ -46,11 +46,11 @@ The public release is available. The next milestones stay explicit.
 | Runnable public source | [nexa-public](https://github.com/yasmeenmh90-beep/nexa-public) |
 | This repository | Documentation, workflow atlas, evidence and roadmap |
 | Public AI route | Netlify Function → OpenAI; no private n8n connection |
-| Private orchestration | Separate n8n foundation; historical screenshot evidence |
-| Private application | `nexa.yasmeenazmat.com` remains a planned owner-only deployment |
+| Private orchestration | n8n specialists reached from the private desktop app over HTTPS with Basic Auth |
+| Private application | macOS desktop app (not public); a web deployment at `nexa.yasmeenazmat.com` is not planned for now |
 | Public project knowledge | No personal-project catalogue added |
 | Next public milestone | Current-device/accessibility checks, usage review and clean walkthrough |
-| Next private milestone | Read-only architecture/security assessment before integration |
+| Next private milestone | Observe live proactive notifications; record a sanitized demo of an approved action |
 
 <a id="completed-work"></a>
 
@@ -89,16 +89,18 @@ The public site is no longer a sample-only interface. Conversely, a real public 
 
 ## 04 · Future private integration
 
-| Phase | Deliverable | Evidence needed |
+| Phase | Deliverable | Status (26 October 2026) |
 | --- | --- | --- |
-| 14.1 · Architecture/security assessment | Review n8n entry points, sessions, allowed specialists, dependencies and rollback without changing workflows | Reviewed design and documented trust boundaries |
-| 14.2 · Owner-only gateway | Authentication, authorization, validated input, server-only credentials and limited audit data | Access-control and negative tests |
-| 14.3 · Read-only specialist pilot | Connect one explicitly permitted private specialist first | Sanitized end-to-end execution and failure-path results |
-| 14.4 · Private voice/UX | Validate voice and session behavior in the authenticated app | Real-device and privacy checks; public voice success is not private integration evidence |
-| 14.5 · Private deployment | Controlled owner-only deployment, monitoring, backup and rollback | Authenticated production smoke tests |
-| 14.6 · Portfolio maintenance | Keep public narrative, code links and evidence aligned with actual releases | Checked public entry and dated release notes |
+| 14.1 · Architecture/security assessment | Review n8n entry points, sessions, allowed specialists and rollback | **Done** — workflows reviewed from exported JSON; rollback copies kept |
+| 14.2 · Owner-only gateway | Authenticated entry point, validated input, credentials kept out of code | **Done** — desktop app → HTTPS n8n webhook with Basic Auth; credentials encrypted in the Mac Keychain |
+| 14.3 · Read-only specialists | Connect the read-only specialists | **Done** — seven specialists answered owner tests end to end |
+| 14.4 · Private voice/UX | Voice and session behavior in the private app | **Done** — local dictation and spoken replies on the Mac |
+| 14.5 · Approval-gated actions | Email and calendar actions with preview, confirmation, expiry and execute-once | **Done** — email send and calendar create/delete confirmed by the services |
+| 14.6 · Proactive alerts | Scheduled monitors delivered as macOS notifications | **In progress** — published; first live notification not yet observed |
+| 14.7 · Memory changes | Save, update and forget memories from chat | **Not enabled** — workflow exists; routed to a disabled reply |
+| 14.8 · Portfolio maintenance | Keep narrative, links and evidence aligned with releases | Ongoing |
 
-Public chat, the guided tour and interview practice stay outside personal-service access. Persistent memory, write actions and proactive workflows require their own scope, permissions and approval design.
+The public website stays outside personal-service access. The private desktop app is not distributed.
 
 <a id="n8n-foundation"></a>
 
@@ -108,7 +110,7 @@ The owner previously reported seven read-only specialist routes verified through
 
 Those screenshots describe configuration and historical editor publication indicators. They do not independently establish current workflow state, credential validity, safe execution of every branch, or successful website integration.
 
-No n8n workflows, credentials, webhook routes, private memory or service accounts were changed by the public website releases or this documentation update.
+The public website releases did not change any n8n workflow. The 25 October private release changed the Desktop Connection router (Action routing), Action Intelligence (settings and an execute-once re-check) and Proactive Intelligence (settings), and added three workflows — see the [workflow atlas](NEXA_WORKFLOWS.md#desktop-additions).
 
 <a id="portfolio-plan"></a>
 
@@ -127,9 +129,12 @@ No n8n workflows, credentials, webhook routes, private memory or service account
 - [x] Update the testing report without treating older scores as a new audit.
 - [ ] Complete current mobile/accessibility and full interview/tour checks.
 - [ ] Verify account spending settings and deployed enforcement.
-- [ ] Publish a sanitized demonstration video.
+- [ ] Publish a sanitized demonstration video (public site plus an approved desktop action).
 - [ ] Add or verify NEXA’s main-portfolio entry and outbound links.
-- [ ] Assess the private gateway before connecting personal services.
+- [x] Connect the private desktop app to the read-only specialists.
+- [x] Enable approval-gated email and calendar actions and test them end to end.
+- [ ] Observe a live proactive notification.
+- [ ] Back up the private desktop source and n8n exports in a private repository.
 
 <a id="historical-context"></a>
 
@@ -152,7 +157,7 @@ The dedicated public website is now live. The reminder’s remaining portfolio/p
 
 Keep the NEXA visual identity, public source, architecture decisions, test commands and original evidence archive as the basis for focused future changes. Earlier local dashboard/login prototypes remain development history; their tests and simulated controls must not be confused with the current public voice/AI release.
 
-**Source snapshot for this update:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7).  
+**Public source snapshot:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7).  
 **Testing detail:** [NEXA_TESTING_REPORT.md](NEXA_TESTING_REPORT.md).
 
 ---
