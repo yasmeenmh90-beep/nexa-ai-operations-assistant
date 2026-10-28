@@ -14,7 +14,7 @@ A public AI experience, explained through its features, architecture and evidenc
 
 **Overview** &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; [Testing report](NEXA_TESTING_REPORT.md) &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-<sub>RELEASE SNAPSHOT · 26 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+<sub>RELEASE SNAPSHOT · 29 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
@@ -56,25 +56,30 @@ NEXA is an interactive public AI experience and an engineering case study. Visit
 | **Interview Practice** | AI/ML, full-stack or backend; beginner/intermediate; one question at a time, hints and constructive feedback | AI-generated educational coaching, not a hiring assessment or validated score |
 | **Voice** | Dictate a question, review the transcript, send it, and hear replies | Browser support and available voices vary; recognition may use the browser provider’s service |
 | **Guided tour** | Six local steps with Back, Next, Finish and Escape | No AI request; an overview rather than an automated product test |
+| **Owner sign-in and policies** | `/signin`, `/account`, `/privacy`, `/terms`, `/security`; **Open NEXA desktop** link | Supabase accounts limited to the owner by a database trigger; public sign-up is off |
 | **Visitor tools** | Suggested prompts, Copy answer, Reset and GitHub feedback drafts | Feedback is public when submitted; GitHub sign-in is required |
 | **Visual experience** | Original hijab-wearing NEXA character, speaking halo/bars, scroll reveals, hover transitions and reading progress | Decorative playback effects; precise lip sync is deferred |
 
 > [!IMPORTANT]
-> **Public capability boundary:** no personal-project knowledge catalogue was added. The public website does not read personal email, calendars, private repositories or long-term memory, and does not execute n8n workflows or external actions. Those capabilities exist only in the private desktop assistant below.
+> **Public capability boundary:** no personal-project knowledge catalogue was added. The public website does not read personal email, calendars, private repositories or long-term memory, and does not execute n8n workflows or external actions. Its sign-in is limited to the owner and only opens the private desktop assistant below, where those capabilities live.
 
 <a id="private-assistant"></a>
 
 ## 02 · The private assistant (owner only)
 
-A macOS desktop app (Electron, React, TypeScript) that talks to the owner's n8n Cloud workflows. Built and tested between 17 and 25 October 2026.
+A macOS desktop app (Electron, React, TypeScript) that talks to the owner's n8n Cloud workflows. Built and tested between 17 and 28 October 2026.
 
 | Capability | How it works | Status |
 | --- | --- | --- |
 | **Local AI** | Qwen3 8B through Ollama on the Mac; no cloud model, no personal-service access | Working (owner-tested) |
 | **Local voice** | Dictation with whisper.cpp on the Mac; replies read aloud with macOS speech | Working (owner-tested) |
 | **Private workflows** | Free-form questions go to an authenticated n8n webhook; an intent router sends them to Gmail, Calendar, Tracker, GitHub, Portfolio, Career or Daily specialists | Working (owner-tested 25 Oct) |
-| **Approval-gated actions** | Send an email; create, move or delete a personal calendar event | Working (owner-tested 25 Oct) |
-| **Proactive alerts** | Hourly monitors (calendar reminders, deadlines, important email) feed HIGH/CRITICAL alerts to macOS notifications | Configured 25 Oct; delivery not yet observed |
+| **Approval-gated actions** | Send an email; create, move or delete a personal calendar event; save to Drive; publish a LinkedIn post | Working (owner-tested 25–28 Oct) |
+| **Proactive alerts** | Hourly monitors (calendar reminders, deadlines, important email) feed HIGH/CRITICAL alerts to macOS notifications | Working (owner-observed) |
+| **Owner sign-in** | Same Supabase account as the website; session encrypted in the macOS Keychain; the website's **Open NEXA desktop** button opens the installed app | Working (owner-tested 28 Oct) |
+| **Connected apps** | Panel showing which apps are connected (Gmail, Calendar, Sheets, Drive, GitHub, LinkedIn, Outlook, Excel, OneDrive); **Connect** opens n8n credentials | Working: 6 of 9 connected |
+| **Google Drive and LinkedIn** | Read Drive files and Google Docs, read the LinkedIn profile; save a note to Drive or publish a LinkedIn post **after approval** | Working (owner-tested 27–28 Oct) |
+| **Outlook, Excel, OneDrive** | Same approval pattern (send email, add a row, save a file) | Built; not connected (no Microsoft account) |
 | **Memory changes, proactive requests from chat** | Exist in n8n but are deliberately routed to a "disabled" reply | Disabled |
 
 ### How write actions stay safe
@@ -119,6 +124,10 @@ flowchart TD
     D["Owner: NEXA desktop app"] -->|"HTTPS + Basic Auth"| N["n8n: Desktop Connection router"]
     N --> W["Read specialists: Gmail, Calendar, Tracker, GitHub, Portfolio, Career, Daily"]
     N --> X["Action specialist: preview → approve → execute once"]
+    N --> Y["Apps specialist: Drive, LinkedIn (Outlook, Excel, OneDrive)"]
+    C["Connections status (read-only)"] --> D
+    S["Supabase: owner-only sign-in"] --> D
+    S --> V2["Website /account"]
     P["Hourly monitor schedule"] --> Q["Proactive Intelligence"] --> H["Alert history"]
     H --> E["Alerts feed (read-only)"] -->|"every 30 min"| D
 ```
@@ -163,9 +172,11 @@ TypeScript compilation, a Vite production build, static rendered-HTML checks and
 
 The next-question transition after feedback, all tour keyboard/focus cases, real-phone behavior and a complete accessibility review still need explicit evidence. Historical Lighthouse scores belong to an earlier release, not a new audit of the current site.
 
+**Sign-in and connected apps (26–28 October 2026):** 33 desktop tests and the 10 website tests passed; the owner tested website and desktop sign-in, the connected-apps panel, Drive read and approved save, LinkedIn profile, a cancelled LinkedIn draft, the website-to-desktop link and a proactive notification.
+
 **Private desktop release (25 October 2026):** 26 automated tests, a TypeScript check and a production build passed. The owner ran 10 end-to-end tests through the desktop app: seven read-only specialist questions, a free-form availability question, a confirmed email send and a confirmed calendar create-and-delete — all returned results confirmed by Gmail or Google Calendar.
 
-Still open: observing a real proactive notification, the expiry and Cancel paths in daily use, memory changes from chat (disabled), and precise lip sync. See the [testing report](NEXA_TESTING_REPORT.md) for the exact evidence boundaries.
+Still open: the 15-minute expiry in daily use, the Microsoft agents (no account connected), memory changes from chat (disabled), and precise lip sync. See the [testing report](NEXA_TESTING_REPORT.md) for the exact evidence boundaries.
 
 **Application source reviewed:** [`0ea3dab`](https://github.com/yasmeenmh90-beep/nexa-public/commit/0ea3dab6cf02051e6d8ee9989542b55d0b5792e7).  
 **Author:** Yasmeen Azmat Ali · 2026.

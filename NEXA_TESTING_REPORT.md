@@ -10,11 +10,11 @@
 
 What passed, what was observed, and what remains to be checked.
 
-[![Public backend tests: 10 passed](https://img.shields.io/badge/Public%20backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Private desktop tests: 26 passed](https://img.shields.io/badge/Private%20desktop%20tests-26%20passed-39745d?style=flat-square)](#private-release) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
+[![Public backend tests: 10 passed](https://img.shields.io/badge/Public%20backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Private desktop tests: 33 passed](https://img.shields.io/badge/Private%20desktop%20tests-33%20passed-39745d?style=flat-square)](#private-release) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
 
 [Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; **Testing report** &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
-<sub>RELEASE SNAPSHOT · 26 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+<sub>RELEASE SNAPSHOT · 29 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
@@ -32,9 +32,48 @@ What passed, what was observed, and what remains to be checked.
 | Static render + motion lifecycle | Sample-interface history | Current Lighthouse and operating controls |
 
 **On this page**  
-[Private desktop release](#private-release) · [Public release](#current-release) · [Data flow](#network-behavior) · [Historical baseline](#historical-baseline) · [Remaining checks](#remaining-checks) · [Related evidence](#related-evidence)
+[Sign-in and connected apps](#apps-release) · [Private desktop release](#private-release) · [Public release](#current-release) · [Data flow](#network-behavior) · [Historical baseline](#historical-baseline) · [Remaining checks](#remaining-checks) · [Related evidence](#related-evidence)
 
 ---
+
+<a id="apps-release"></a>
+
+## 00a · Sign-in, policies and connected apps: 26–28 October 2026
+
+This release added owner sign-in on the website and in the desktop app, privacy/terms/security pages, a connected-apps panel, and a new n8n specialist for Google Drive and LinkedIn. As before, personal content is not reproduced here.
+
+### Automated checks
+
+| Check | Result |
+| --- | --- |
+| Website: TypeScript, production build | Passed |
+| Website: existing backend tests | **10 passed, 0 failed** |
+| Website pages in a real browser (desktop and 390 px phone) | Wrong password, weak password, non-owner sign-up rejected, signed-out `/account` redirect, account page, policy pages; no console errors, no horizontal scroll |
+| Desktop: TypeScript, production build | Passed |
+| Desktop: automated tests | **33 passed, 0 failed** (7 new: Supabase URL/key checks, encrypted session storage, sign-in errors, connection-status mapping, credentials page, website deep link, Apps approval phrases) |
+| Desktop sign-in against the real Supabase client (simulated server) | Sign in, stay signed in after restart, sign out |
+| Apps Intelligence code nodes, run against sample data | Approval, expiry, cancel, planning, address validation, previews, Excel table selection, error messages, outcome checks |
+
+### Owner end-to-end tests (26–28 October)
+
+| # | Test | Observed result |
+| --- | --- | --- |
+| 1 | Website sign-in (live site) | Owner account signs in; account page shows the desktop link and connected-app tiles |
+| 2 | Owner-only lock | Supabase rejects other e-mail addresses; public sign-up switched off after the owner account existed |
+| 3 | Desktop sign-in | Same account signs in inside the app; the connected-apps panel opens automatically |
+| 4 | Connected apps panel | Gmail, Google Calendar, Google Sheets, Google Drive, GitHub and LinkedIn reported **Connected** (6 of 9); Outlook, Excel and OneDrive not connected (no Microsoft account) |
+| 5 | "Show my recent Google Drive files" | Ten most recent real Drive files listed with dates and links |
+| 6 | "Save this to my Google Drive: NEXA test note" | Preview → Approve → Google Doc created and opened in Drive |
+| 7 | "Who am I on LinkedIn?" | Owner's LinkedIn name and e-mail returned |
+| 8 | LinkedIn post draft | Preview shown → **Cancel** → nothing posted |
+| 9 | "Open NEXA desktop" on the website | Browser asks to open NEXA → packaged app opens on the connected-apps panel |
+| 10 | Proactive alert | A macOS notification from NEXA was observed (owner-reported) |
+
+**Found and fixed during testing:**
+- Webhooks rejected the desktop app as a "bot". Turning off *Ignore Bots* on the webhook triggers fixed both the connections check and the alerts feed.
+- Disabled n8n nodes pass data through, so the first connection check over-reported. The check now requires each service's own response.
+- The Apps planner returned JSON as an object, not text. The parser now accepts both.
+- The owner's Supabase key was mistyped in `.env`; it was identified with a small check script.
 
 <a id="private-release"></a>
 
@@ -80,8 +119,8 @@ The private desktop app and its n8n workflows are not public. Results below come
 
 ### Not yet verified
 
-- A real proactive alert arriving as a macOS notification (schedule and feed were published 25 October, during quiet hours).
-- Cancel and 15-minute expiry in real use (covered by automated tests and the workflow design, not yet observed end to end).
+- ~~A real proactive alert arriving as a macOS notification~~ (observed after the 26 October webhook fix; see 00a).
+- 15-minute expiry in real use (covered by automated tests and the workflow design, not yet observed end to end). Cancel was observed for a LinkedIn draft on 28 October.
 - Two near-simultaneous confirmations of the same action (protected by a claim token plus a 3-second re-check; reduces the risk but does not make it provably impossible).
 
 <a id="current-release"></a>
@@ -225,7 +264,7 @@ Earlier responsive captures included 320 px, 440 × 956 and 768 × 1024 views. T
 - Review deployed request limits, dependencies, Netlify credits and OpenAI spending settings.
 - Rerun Lighthouse for the current release and publish dated findings if desired.
 
-The public website still has no owner authentication, n8n connection or actions; those exist only in the private desktop release above. Memory changes from chat remain disabled. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
+The public website now has owner-only sign-in, but still has no n8n connection or actions; those exist only in the private desktop app. Outlook, Excel and OneDrive agents exist but are untested (no Microsoft account). The LinkedIn token expires after 60 days and must be reconnected. Memory changes from chat remain disabled. The separate portfolio/FlyRank audit results must not be presented as NEXA release scores.
 
 <a id="related-evidence"></a>
 

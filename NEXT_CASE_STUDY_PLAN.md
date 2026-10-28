@@ -14,7 +14,7 @@ The public release is available. The next milestones stay explicit.
 
 [Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; [Testing report](NEXA_TESTING_REPORT.md) &nbsp; / &nbsp; **Roadmap**
 
-<sub>RELEASE SNAPSHOT · 26 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
+<sub>RELEASE SNAPSHOT · 29 OCTOBER 2026 · YASMEEN AZMAT ALI</sub>
 
 </div>
 
@@ -47,10 +47,10 @@ The public release is available. The next milestones stay explicit.
 | This repository | Documentation, workflow atlas, evidence and roadmap |
 | Public AI route | Netlify Function → OpenAI; no private n8n connection |
 | Private orchestration | n8n specialists reached from the private desktop app over HTTPS with Basic Auth |
-| Private application | macOS desktop app (not public); a web deployment at `nexa.yasmeenazmat.com` is not planned for now |
+| Private application | macOS desktop app (not public), installed from a local build; the website's owner sign-in opens it. A web deployment at `nexa.yasmeenazmat.com` is not planned for now |
 | Public project knowledge | No personal-project catalogue added |
 | Next public milestone | Current-device/accessibility checks, usage review and clean walkthrough |
-| Next private milestone | Observe live proactive notifications; record a sanitized demo of an approved action |
+| Next private milestone | Reconnect LinkedIn before its 60-day token expires; private backup of desktop source and n8n exports; refresh the demo video with sign-in, Drive and LinkedIn |
 
 <a id="completed-work"></a>
 
@@ -96,7 +96,9 @@ The public site is no longer a sample-only interface. Conversely, a real public 
 | 14.3 · Read-only specialists | Connect the read-only specialists | **Done** — seven specialists answered owner tests end to end |
 | 14.4 · Private voice/UX | Voice and session behavior in the private app | **Done** — local dictation and spoken replies on the Mac |
 | 14.5 · Approval-gated actions | Email and calendar actions with preview, confirmation, expiry and execute-once | **Done** — email send and calendar create/delete confirmed by the services |
-| 14.6 · Proactive alerts | Scheduled monitors delivered as macOS notifications | **In progress** — published; first live notification not yet observed |
+| 14.6 · Proactive alerts | Scheduled monitors delivered as macOS notifications | **Done** — notification observed after the webhook fix (26 October) |
+| 14.6a · Owner sign-in | Website and desktop sign-in, owner-only accounts, policies, website → desktop link | **Done** — Supabase with a database lock; tested 26–28 October |
+| 14.6b · Connected apps | Connection status panel; Drive and LinkedIn agents with approval-gated writes | **Done** for Drive and LinkedIn (6 of 9 apps connected); Outlook, Excel and OneDrive built but not connected |
 | 14.7 · Memory changes | Save, update and forget memories from chat | **Not enabled** — workflow exists; routed to a disabled reply |
 | 14.8 · Portfolio maintenance | Keep narrative, links and evidence aligned with releases | Ongoing |
 
@@ -133,7 +135,9 @@ The public website releases did not change any n8n workflow. The 25 October priv
 - [ ] Add or verify NEXA’s main-portfolio entry and outbound links.
 - [x] Connect the private desktop app to the read-only specialists.
 - [x] Enable approval-gated email and calendar actions and test them end to end.
-- [ ] Observe a live proactive notification.
+- [x] Observe a live proactive notification.
+- [x] Add owner-only sign-in, policies and the website → desktop link.
+- [x] Connect Google Drive and LinkedIn with approval-gated writes.
 - [ ] Back up the private desktop source and n8n exports in a private repository.
 
 <a id="historical-context"></a>

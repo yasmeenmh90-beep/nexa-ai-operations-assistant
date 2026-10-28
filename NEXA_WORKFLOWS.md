@@ -88,17 +88,19 @@ flowchart TD
 
 <a id="desktop-additions"></a>
 
-### Status update and additions · 25–26 October 2026
+### Status update and additions · 25–28 October 2026
 
 The statuses in the table above come from the original screenshots. For the private desktop release, the owner published **Action Intelligence**, **Proactive Intelligence** and the updated **Desktop Connection** router on 25 October 2026, and added three workflows that do not yet have screenshots:
 
 | # | Workflow | Status | Principal responsibility |
 |:--:|:---|:---|:---|
-| 19 | Desktop Connection | Published (owner-reported) | Authenticated chat webhook for the desktop app. Routes intents to the read specialists and, since 25 October, to Action Intelligence; memory changes and proactive requests from chat stay disabled. Writes an audit row per request. |
+| 19 | Desktop Connection | Published (owner-reported) | Authenticated chat webhook for the desktop app. Routes intents to the read specialists, to Action Intelligence (since 25 October) and to Apps Intelligence (since 27 October); memory changes and proactive requests from chat stay disabled. Writes an audit row per request. |
 | 20 | Desktop Alerts Feed | Published (owner-reported) | Read-only, Basic Auth webhook returning deliverable HIGH/CRITICAL alerts from the last 24 hours. |
 | 21 | Proactive Monitor Schedule | Published (owner-reported) | Runs calendar-reminder, deadline and important-email monitors hourly from 08:15 to 21:15 (Asia/Dubai). |
+| 22 | Connections Status | Published (owner-reported) | Read-only, Basic Auth webhook that tells the desktop app which work apps are connected. Each check calls the service's own API with its credential and returns only yes/no and a short reason, never personal data. |
+| 23 | Apps Intelligence | Published (owner-reported) | Specialist for Google Drive, LinkedIn, Outlook, Excel and OneDrive. Plans one step with OpenAI, reads data (Drive files and Google Docs, LinkedIn profile), and for writes (save a note to Drive, publish a LinkedIn post; Outlook/Excel/OneDrive when connected) shows a preview, stores a pending action for 15 minutes, and runs it once after approval. The Microsoft nodes are deactivated because no Microsoft account is connected. |
 
-Action Intelligence also gained a second claim check (wait, re-read, verify token) before executing, and Action, Proactive and the new workflows no longer save execution data.
+Action Intelligence also gained a second claim check (wait, re-read, verify token) before executing, and Action, Proactive and the new workflows no longer save execution data. Apps Intelligence uses the same claim → wait → verify pattern with its own data table, *NEXA Apps Pending*.
 
 <a id="walkthroughs"></a>
 
@@ -468,6 +470,8 @@ Action Intelligence also gained a second claim check (wait, re-read, verify toke
 - [x] Design and implement an authenticated owner-only boundary (desktop app → n8n webhook with Basic Auth)
 - [x] Verify action approvals end to end (email send, calendar create and delete)
 - [x] Publish only the workflows selected for the private desktop release
+- [x] Add connection status for the desktop app (Connections Status)
+- [x] Add Google Drive and LinkedIn agents with approval-gated writes (Apps Intelligence)
 - [ ] Record sanitized execution-level evidence for each integration
 - [ ] Capture screenshots of workflows 19–21
 - [ ] Observe live proactive notifications
