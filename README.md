@@ -52,7 +52,7 @@ NEXA is an interactive public AI experience and an engineering case study. Visit
 | Experience | Available behavior | Boundary |
 | --- | --- | --- |
 | **Sample Demo** | Daily briefing, Inbox, Calendar, Projects, Career and GitHub examples | Fictional, predefined browser-local content; no OpenAI request |
-| **Live AI — General chat** | General questions, explanations and short follow-ups | OpenAI through a Netlify Function; answers may be inaccurate |
+| **Live AI — General chat** | General questions, explanations and short follow-ups | OpenAI through a Netlify Function; 10 live messages per visitor per day and a daily cap for the site; answers may be inaccurate |
 | **Interview Practice** | AI/ML, full-stack or backend; beginner/intermediate; one question at a time, hints and constructive feedback | AI-generated educational coaching, not a hiring assessment or validated score |
 | **Voice** | Dictate a question, review the transcript, send it, and hear replies | Browser support and available voices vary; recognition may use the browser provider’s service |
 | **Guided tour** | Six local steps with Back, Next, Finish and Escape | No AI request; an overview rather than an automated product test |

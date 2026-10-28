@@ -38,6 +38,28 @@ What passed, what was observed, and what remains to be checked.
 
 <a id="apps-release"></a>
 
+## 00b · Daily limits for public Live AI: 29 October 2026
+
+Public Live AI now has daily limits so the site's OpenAI spending stays bounded.
+
+| Limit | Value |
+| --- | --- |
+| Per visitor | 10 live messages per UTC day (visitor = salted one-way hash of IP address and date; the raw IP is not stored) |
+| Whole site | 100 live messages per UTC day |
+| Per minute (unchanged) | 5 requests per IP/domain grouping |
+| OpenAI project | $5 monthly spend limit, enforced (owner dashboard, 29 October) |
+
+Counters are kept in Netlify Blobs with ETag-checked increments. A visitor's own limit is checked first, so one visitor cannot use up the site allowance. If the counters cannot be reached, Live AI stays closed. Counters from earlier days are deleted with the first message of each new day. When a limit is reached, the page shows when Live AI opens again and keeps Sample Demo available.
+
+| Check | Result |
+| --- | --- |
+| Website backend tests | **17 passed, 0 failed** (7 new: per-visitor limit and reset time, site cap, over-limit visitor cannot drain the site cap, fail-closed counter, read-only usage check, switched-off state, cleanup of earlier days) |
+| TypeScript, production build | Passed |
+| UI states in a real browser (mocked API) | "10 of 10 live messages left today" progress bar; limit reached → input disabled, "opens again in …" countdown |
+| Deployed site (owner) | "10 of 10 live messages left today" shown on nexa-public.netlify.app after deploy |
+
+**Not yet verified:** the reset at midnight UTC on the deployed site, and the site-wide cap under real traffic.
+
 ## 00a · Sign-in, policies and connected apps: 26–28 October 2026
 
 This release added owner sign-in on the website and in the desktop app, privacy/terms/security pages, a connected-apps panel, and a new n8n specialist for Google Drive and LinkedIn. As before, personal content is not reproduced here.
@@ -200,7 +222,7 @@ The October 15 recordings/screenshots were supplied in the project conversation.
 - Public chat does not connect to n8n, personal email/calendar services, private repositories or long-term memory.
 - Feedback links open public GitHub issue drafts. They do not automatically submit an issue or attach conversation text.
 
-The function source configures a 48,000-byte body limit, 1–1500-character current message, a 20-second upstream timeout, 400 output-token limit and a five-per-minute IP/domain rate limit. A configured origin check is not authentication; rate limiting is not an account-wide spending cap. Account budgets and deployed enforcement need separate review.
+The function source configures a 48,000-byte body limit, 1–1500-character current message, a 20-second upstream timeout, 400 output-token limit and a five-per-minute IP/domain rate limit. A configured origin check is not authentication; per-minute rate limiting alone is not a spending cap. Since 29 October, daily per-visitor and site-wide limits and an enforced OpenAI project spend limit also apply (see [00b](#00b--daily-limits-for-public-live-ai-29-october-2026)).
 
 <a id="historical-baseline"></a>
 

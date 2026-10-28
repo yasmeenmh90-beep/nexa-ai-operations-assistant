@@ -130,7 +130,7 @@ The public website releases did not change any n8n workflow. The 25 October priv
 - [x] Separate historical workflow evidence from public runtime capability.
 - [x] Update the testing report without treating older scores as a new audit.
 - [ ] Complete current mobile/accessibility and full interview/tour checks.
-- [ ] Verify account spending settings and deployed enforcement.
+- [x] Verify account spending settings and deployed enforcement (daily chat limits and an enforced $5 OpenAI project limit, 29 October 2026).
 - [ ] Publish a sanitized demonstration video (public site plus an approved desktop action).
 - [ ] Add or verify NEXA’s main-portfolio entry and outbound links.
 - [x] Connect the private desktop app to the read-only specialists.
