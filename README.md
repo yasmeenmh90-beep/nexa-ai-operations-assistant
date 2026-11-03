@@ -174,6 +174,8 @@ The next-question transition after feedback, all tour keyboard/focus cases, real
 
 **Sign-in and connected apps (26–28 October 2026):** 33 desktop tests and the 10 website tests passed; the owner tested website and desktop sign-in, the connected-apps panel, Drive read and approved save, LinkedIn profile, a cancelled LinkedIn draft, the website-to-desktop link and a proactive notification.
 
+**Final frontend review (3 November 2026):** 34 desktop tests and 18 website tests pass. The review fixed outdated text, accessibility and readability issues, added a 404 page, favicon and share image, and made Live AI state that it is text only. See the [testing report](NEXA_TESTING_REPORT.md#00c--final-frontend-review-3-november-2026).
+
 **Private desktop release (25 October 2026):** 26 automated tests, a TypeScript check and a production build passed. The owner ran 10 end-to-end tests through the desktop app: seven read-only specialist questions, a free-form availability question, a confirmed email send and a confirmed calendar create-and-delete — all returned results confirmed by Gmail or Google Calendar.
 
 Still open: the 15-minute expiry in daily use, the Microsoft agents (no account connected), memory changes from chat (disabled), and precise lip sync. See the [testing report](NEXA_TESTING_REPORT.md) for the exact evidence boundaries.

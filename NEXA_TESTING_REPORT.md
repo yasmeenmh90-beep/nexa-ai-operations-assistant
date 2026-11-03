@@ -10,7 +10,7 @@
 
 What passed, what was observed, and what remains to be checked.
 
-[![Public backend tests: 10 passed](https://img.shields.io/badge/Public%20backend%20tests-10%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Private desktop tests: 33 passed](https://img.shields.io/badge/Private%20desktop%20tests-33%20passed-39745d?style=flat-square)](#private-release) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
+[![Public backend tests: 18 passed](https://img.shields.io/badge/Public%20backend%20tests-18%20passed-39745d?style=flat-square)](https://github.com/yasmeenmh90-beep/nexa-public/blob/main/tests/chat.test.mjs) [![Private desktop tests: 34 passed](https://img.shields.io/badge/Private%20desktop%20tests-34%20passed-39745d?style=flat-square)](#private-release) [![Evidence: Bounded claims](https://img.shields.io/badge/Evidence-Bounded%20claims-8b5cf6?style=flat-square)](#evidence-standard) [![Current audit: Incomplete](https://img.shields.io/badge/Current%20audit-Incomplete-b7791f?style=flat-square)](#remaining-checks)
 
 [Overview](README.md) &nbsp; / &nbsp; [Workflow atlas](NEXA_WORKFLOWS.md) &nbsp; / &nbsp; **Testing report** &nbsp; / &nbsp; [Roadmap](NEXT_CASE_STUDY_PLAN.md)
 
@@ -37,6 +37,45 @@ What passed, what was observed, and what remains to be checked.
 ---
 
 <a id="apps-release"></a>
+
+## 00c · Final frontend review: 3 November 2026
+
+A final review of the desktop app and the public website, before release. Both were reviewed with an AI coding assistant (Claude Code) under fixed rules: audit first, owner approval before changes, one commit per group, checks after every group, and no changes to authentication, the approval logic, the chat function's limits, CSP or IPC.
+
+### Desktop app
+
+| Change | Detail |
+| --- | --- |
+| Honest text | The banner, Settings and the Connections panel now say that questions go to the private n8n agents and that every write action (email, calendar, Drive, OneDrive, Excel, Outlook, LinkedIn) needs Approve. The welcome message matches the current mode. Controls that did nothing were removed. |
+| Thinking indicator | Follows whether a request is pending, so it can no longer disappear before the reply arrives. |
+| Accessibility | Dialogs close with Escape and keep focus; visible input focus ring (3:1 border contrast); focus stays in the input after sending; named Connect buttons; no duplicate screen-reader announcements; reduced-motion scrolling. |
+| Readability | Smallest text raised from 8–10px to 11px. |
+| Cleanup and size | Dead code and an old backup file removed from the package; CSS merged; avatar images served as WebP (about 172 KB instead of 2.5 MB). |
+
+| Check | Result |
+| --- | --- |
+| Automated tests | **34 passed, 0 failed** (1 new: the thinking indicator) |
+| TypeScript, production build, packaged app | Passed after every group; avatar files load in the packaged app under its CSP |
+| CSS merge | Before/after screenshots of 15 views were pixel-identical |
+| Owner check of the installed app (3 Nov) | Sign-in, Companion with avatar, Apps panel 6 of 9, Settings, Private workflows reply from n8n, LinkedIn draft preview with Approve / Cancel; the unanswered preview expired with "Nothing was done" |
+
+### Public website
+
+| Change | Detail |
+| --- | --- |
+| Honest text | The home page now says owner sign-in is live, 6 of 9 apps are connected, and write actions always need Approve. On the account page, Outlook, Excel and OneDrive say "Agent built · not connected". |
+| Live AI | Its instructions now say the chat is text only and must not offer features the page lacks (an answer had offered image uploads). |
+| Accessibility and readability | Keyboard focus stays in the demo; the chat log can be scrolled by keyboard; low-contrast greys fixed for WCAG AA; smallest text raised to 10px. |
+| Site basics | Favicon and touch icon; a fresh 134 KB share image (1200×630); a real 404 page; sitemap script keeps all public pages; an unused 2.4 MB image removed. |
+
+| Check | Result |
+| --- | --- |
+| Website backend tests | **18 passed, 0 failed** (1 new: Live AI instructions) |
+| TypeScript, production build | Passed after every group |
+| 7 pages at 390, 768, 1280 and 1440px | No horizontal overflow, console errors, failed requests or automated (axe) accessibility violations |
+| Owner check of the live site (3 Nov) | Pages and account labels correct; "Open NEXA desktop" opened the app; Live AI answered and the counter went from 10 to 9 to 8; the answer no longer mentions image uploads |
+
+**Not verified:** real screen readers, and a phone check beyond the automated width tests.
 
 ## 00b · Daily limits for public Live AI: 29 October 2026
 
